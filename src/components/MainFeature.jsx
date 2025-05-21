@@ -19,7 +19,9 @@ const quizData = {
         id: 1,
         question: "What is the name of Ross's second wife?",
         options: ["Emily", "Carol", "Susan", "Janice"],
-        correctAnswer: "Emily"
+        correctAnswer: "Emily",
+        difficulty: "easy",
+        points: 10
       },
       {
         id: 2,
@@ -164,22 +166,22 @@ const quizData = {
         correctAnswer: "Ross",
         difficulty: "medium",
         points: 20
-      },
-      {
         id: 20,
         question: "What does Phoebe legally change her name to after she gets married?",
         options: ["Phoebe Buffay-Hannigan", "Princess Consuela Banana-Hammock", "Phoebe Hannigan", "Phoebe Princess Consuela"],
         correctAnswer: "Princess Consuela Banana-Hammock",
         difficulty: "hard",
-        points: 30
+        correctAnswer: "Princess Consuela Banana-Hammock",
       },
       {
-        id: 21,
-        question: "What does Ross give to Rachel as her first present?",
+      },
+      {
         options: ["A pin", "A bracelet", "A necklace", "Earrings"],
         correctAnswer: "A pin",
         difficulty: "hard",
-        points: 30
+        correctAnswer: "A pin",
+      },
+      {
       },
       {
         id: 22,
@@ -205,6 +207,236 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
+      {
+        id: 25,
+        question: "What subject does Ross teach?",
+        options: ["Archaeology", "Paleontology", "Geology", "Anthropology"],
+        correctAnswer: "Paleontology",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 26,
+        question: "What is the name of the character Phoebe made up to dump a guy?",
+        options: ["Regina Falange", "Ursula Buffay", "Phoebe Abbott", "Princess Consuela"],
+        correctAnswer: "Regina Falange",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 27,
+        question: "What is the name of the self-help book that Rachel and Joey love but Ross hates?",
+        options: ["Be Your Own Person", "Be Your Own Windkeeper", "Finding Your Inner Self", "Knowing Your Worth"],
+        correctAnswer: "Be Your Own Windkeeper",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 28,
+        question: "What is Monica's biggest strength according to her job interview?",
+        options: ["Cooking", "Competitiveness", "Attention to detail", "Leadership"],
+        correctAnswer: "Attention to detail",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 29,
+        question: "On which soap opera did Joey get his big break?",
+        options: ["General Hospital", "Days of Our Lives", "As the World Turns", "The Bold and the Beautiful"],
+        correctAnswer: "Days of Our Lives",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 30,
+        question: "What is the name of Rachel's embarrassing high school nickname?",
+        options: ["Big Nose", "Craney", "Spotty", "Big Teeth"],
+        correctAnswer: "Big Nose",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 31,
+        question: "Who marries Monica and Chandler?",
+        options: ["Ross", "Joey", "A random priest", "The minister from the Bing wedding"],
+        correctAnswer: "Joey",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 32,
+        question: "What song does Ross's monkey Marcel keep playing on repeat?",
+        options: ["With or Without You", "In the Jungle", "The Lion Sleeps Tonight", "Don't Stand So Close to Me"],
+        correctAnswer: "The Lion Sleeps Tonight",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 33,
+        question: "What is Richard's profession?",
+        options: ["Doctor", "Dentist", "Optometrist", "Ophthalmologist"],
+        correctAnswer: "Ophthalmologist",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 34,
+        question: "What is Joey's acting catchphrase?",
+        options: ["How YOU doin'?", "Smell the fart acting", "It's all in the eyes", "The camera loves me"],
+        correctAnswer: "Smell the fart acting",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 35,
+        question: "What does Ross dress up as for Halloween to scare Chandler?",
+        options: ["Vampire", "Zombie", "Spud-nik", "Holiday Armadillo"],
+        correctAnswer: "Spud-nik",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 36,
+        question: "What is the name of Janice's first husband?",
+        options: ["Gary", "Gary Litman", "Gary Hosenstein", "Gary Newman"],
+        correctAnswer: "Gary Litman",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 37,
+        question: "What nickname did Monica's father give her when she was younger?",
+        options: ["Little Harmonica", "Big Fat Goalie", "Mon", "Little One"],
+        correctAnswer: "Little Harmonica",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 38,
+        question: "What was the name of the coffee shop before it was Central Perk?",
+        options: ["Insomnia Cafe", "Manhattan Brew", "Daily Grind", "It was always Central Perk"],
+        correctAnswer: "It was always Central Perk",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 39,
+        question: "What did Carol and Susan name their son?",
+        options: ["Ben", "Mark", "Michael", "Robert"],
+        correctAnswer: "Ben",
+        difficulty: "easy",
+        points: 10
+      },
+      {  
+        id: 40,
+        question: "What was Phoebe's profession before becoming a masseuse?",
+        options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
+        correctAnswer: "Telemarketer",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 41,
+        question: "What was Joey's fake stage name when he was trying to be younger?",
+        options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
+        correctAnswer: "Joseph Stalin",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 42,
+        question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
+        options: ["Mexico", "Russia", "Yemen", "Canada"],
+        correctAnswer: "Yemen",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 43,
+        question: "What caused the fire in Phoebe and Rachel's apartment?",
+        options: ["A hair straightener", "A candle", "The stove", "Rachel's hair curling iron"],
+        correctAnswer: "Rachel's hair curling iron",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 44,
+        question: "What was the profession of Rachel's assistant Tag?",
+        options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
+        correctAnswer: "There was no previous profession mentioned",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 45,
+        question: "What was the job Joey had in a department store?",
+        options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
+        correctAnswer: "Cologne sprayer",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 46,
+        question: "What did Chandler's mother give the group when she visited?",
+        options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
+        correctAnswer: "Books she wrote",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 47,
+        question: "What profession did Rachel's father want her to pursue?",
+        options: ["Doctor", "Lawyer", "Dentist", "Businesswoman"],
+        correctAnswer: "Doctor",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 48,
+        question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
+        options: ["LOVE", "VEGAS", "LOSER", "ROSS"],
+        correctAnswer: "ROSS",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 49,
+        question: "What is the name of the girl Joey dates who keeps punching him?",
+        options: ["Katie", "Kathy", "Kaley", "Kara"],
+        correctAnswer: "Katie",
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        id: 50,
+        question: "What was the profession of Rachel's imaginary friend?",
+        options: ["Astronaut", "Cowboy", "Pilot", "Stockbroker"],
+        correctAnswer: "Stockbroker",
+        difficulty: "medium",
+        points: 20
+        id: 22,
+        question: "What is Joey's favorite food?",
+        options: ["Pizza", "Sandwiches", "Pasta", "Meatball subs"],
+        correctAnswer: "Sandwiches",
+        difficulty: "easy",
+        points: 10
+      {
+        id: 23,
+        question: "Which character has a brother named Frank Jr.?",
+        options: ["Monica", "Rachel", "Phoebe", "Joey"],
+        correctAnswer: "Phoebe",
+        difficulty: "medium",
+        points: 20
+        options: ["Real Estate Agent", "Insurance Salesman", "Banker", "Teacher"],
+      },
+      {
+        id: 24,
+        question: "What was the name of Ross's monkey?",
+        options: ["Marcel", "Marvin", "Michael", "Monty"],
+        correctAnswer: "Marcel",
+        difficulty: "easy",
+        options: ["Colombia", "Mexico", "Venezuela", "Argentina"],
+        correctAnswer: "Colombia",
       {
         id: 25,
         question: "What subject does Ross teach?",
