@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { getIcon } from '../utils/iconUtils';
 import MainFeature from '../components/MainFeature';
 import { toast } from 'react-toastify';
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence
 
 const Home = ({ darkMode, toggleDarkMode }) => {
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const handleCategorySelect = (categoryName) => {
-    setSelectedCategory(categoryName);
-    setShowWelcome(false);
-    toast.success(`Starting ${categoryName} quiz!`, { theme: darkMode ? 'dark' : 'light' });
-  };
+  const [showWelcome, setShowWelcome] = useState(true); // State to control showing the initial welcome screen
   const MoonIcon = getIcon('moon');
   const SunIcon = getIcon('sun');
   
@@ -59,6 +52,7 @@ const Home = ({ darkMode, toggleDarkMode }) => {
       {/* Main content */}
       <main className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         {showWelcome ? (
+          // --- Initial Welcome Screen ---
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,8 +78,8 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                   <span className="mr-2 text-primary">•</span>
                   <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
+            <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
+               <li className="flex items-start">
                   <span>Get instant feedback on your answers</span>
                 </li>
                 <li className="flex items-start">
@@ -98,32 +92,26 @@ const Home = ({ darkMode, toggleDarkMode }) => {
  Choose your fandom to begin:
  </p>
             {/* Moved the category buttons here from below */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-              {[
+
+            <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
                 { name: "Friends", emoji: "☕" },
                 { name: "Modern Family", emoji: "🏠" },
-                { name: "Harry Potter", emoji: "⚡" }
+            {/* Button to start the quiz flow (which now begins with category selection in MainFeature) */}
               ].map((category) => (
-                <motion.div
-                  key={category.name}
-                  className="bg-white/70 dark:bg-surface-800/70 rounded-xl p-4 text-center shadow-md cursor-pointer transition-colors hover:bg-white/90 dark:hover:bg-surface-700/90"
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => handleCategorySelect(category.name)}
-                >
-                  <div className="text-3xl mb-2">{category.emoji}</div>
-                  <div className="font-medium">{category.name}</div>
-                </motion.div>
-              ))}
+              <motion.button
+                onClick={() => setShowWelcome(false)}
+                className="col-span-full btn btn-primary text-lg md:text-xl py-4 rounded-xl font-comic tracking-wide"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
             </div> {/* Correct closing tag for the div wrapping the map */}
-          </motion.div>
-        ) : (
           <MainFeature onBackToWelcome={() => setShowWelcome(true)} />
         )}
       </main> {/* Closing tag for main */}
       <footer className="relative z-10 py-6 text-center text-surface-500 text-sm">
         <div className="container mx-auto">
           <p>© {new Date().getFullYear()} FandomFever Quiz Game</p>
-        </div>
+          // --- Main Quiz Flow (handles Category, Level, Quiz, Results) ---
+          <MainFeature onBackToWelcome={() => setShowWelcome(true)} /> {/* Pass a function to go back to welcome */}
       </footer>
     </div>
   );

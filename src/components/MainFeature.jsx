@@ -297,7 +297,7 @@ function shuffleArray(array) {
 
 // --- Component ---
 const MainFeature = ({ onBackToWelcome }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null); // State to manage which category is chosen first
   const [selectedLevel, setSelectedLevel] = useState(null); // New state for level
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -363,6 +363,7 @@ const MainFeature = ({ onBackToWelcome }) => {
   const handleCategorySelect = (categoryName) => {
     setSelectedCategory(categoryName);
     setSelectedLevel(null); // Reset level when category changes
+    // Reset quiz state when category changes
     setQuizQuestions([]); // Clear previous questions
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -384,16 +385,15 @@ const MainFeature = ({ onBackToWelcome }) => {
       setCurrentQuestionIndex(0);
       setScore(0);
       setPoints(0);
+      setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take first 10, adjust as needed
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setPoints(0);
       setGameEnded(false);
       setSelectedAnswer(null);
       setIsCorrect(null);
       setShowFeedback(false);
-      setCurrentRound({ round: 1, isDoublePoints: false });
-      toast.success(`Starting ${level} quiz for ${selectedCategory}!`, { autoClose: 2000 });
-    } else {
-      toast.warning(`No ${level} questions found for ${selectedCategory}. Please choose another level or category.`, { autoClose: 3000 });
-      setSelectedLevel(null); // Go back to level selection if no questions
-    }
+      setCurrentRound({ round: 1, isDoublePoints: false }); // Reset round logic
   };
 
   const handleAnswerSelect = (answer) => {
@@ -434,7 +434,7 @@ const MainFeature = ({ onBackToWelcome }) => {
       q.name === selectedCategory && q.difficulty === selectedLevel.toLowerCase()
     );
     setQuizQuestions(shuffleArray(filteredQuestions));
-    setCurrentQuestionIndex(0);
+    setCurrentQuestionIndex(0); // Ensure index starts at 0
     setScore(0);
     setPoints(0);
     setGameEnded(false);
@@ -488,6 +488,16 @@ const MainFeature = ({ onBackToWelcome }) => {
 
   const currentQuestion = getCurrentQuestion();
   const isWrong = selectedAnswer !== null && selectedAnswer !== currentQuestion?.correctAnswer;
+
+  // Category data mapping for dynamic styling and icons
+  const categoryData = useMemo(() => ({
+    Friends: { icon: "Sparkles", color: "bg-friends-primary", themeClass: "friends-theme", points: { easy: 10, medium: 20, hard: 30 } },
+    "Modern Family": { icon: "Home", color: "bg-modernfamily-primary", themeClass: "modernfamily-theme", points: { easy: 10, medium: 20, hard: 30 } },
+    "Harry Potter": { icon: "Star", color: "bg-harrypotter-primary", themeClass: "harrypotter-theme", points: { easy: 10, medium: 20, hard: 30 } },
+  }), []);
+
+  const getCategoryData = () => categoryData[selectedCategory] || {};
+
   const CheckIcon = getIcon('CheckCircle');
   const XIcon = getIcon('XCircle');
   const TrophyIcon = getIcon('Trophy');
@@ -507,7 +517,7 @@ const MainFeature = ({ onBackToWelcome }) => {
       </button>
 
       <AnimatePresence mode="wait">
-        {!selectedCategory ? ( // Screen 1: Category Selection
+        {!selectedCategory ? ( // State 1: Category Selection
           <motion.div
             key="category-screen"
             initial={{ opacity: 0, y: 20 }}
@@ -540,7 +550,7 @@ const MainFeature = ({ onBackToWelcome }) => {
               })}
             </div>
           </motion.div>
-        ) : !selectedLevel ? ( // Screen 2: Level Selection (After Category)
+        ) : !selectedLevel ? ( // State 2: Level Selection (After Category)
           <motion.div
             key="level-screen"
             initial={{ opacity: 0, y: 20 }}
@@ -569,7 +579,7 @@ const MainFeature = ({ onBackToWelcome }) => {
             key="quiz-screen"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+          </motion.div> // Corrected closing tag
             transition={{ duration: 0.3 }}
             className={`w-full max-w-2xl card ${getCategoryData().themeClass}`}
           >
