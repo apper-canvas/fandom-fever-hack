@@ -64,20 +64,6 @@ export default {
   plugins: [],
   darkMode: 'class',
 };
-
-          dark: '#cc4444'
-        },
-        secondary: {
-          DEFAULT: '#4ecdc4',
-          light: '#7edcd4',
-          dark: '#30a39a'
-        },
-        accent: '#ffd166',
-        friends: {
-          primary: '#1e88e5',  // Blue like the Friends logo
-          secondary: '#f5f5f5' // Light gray like the frame around the peephole
-        },
-        modernfamily: {
           primary: '#ff9800',  // Orange like in the logo
           secondary: '#f5f5f5' // Light background
         },
