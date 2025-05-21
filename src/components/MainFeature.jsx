@@ -394,7 +394,7 @@ const quizData = {
         question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
         options: ["LOVE", "VEGAS", "LOSER", "ROSS"],
         correctAnswer: "ROSS",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -402,7 +402,7 @@ const quizData = {
         question: "What is the name of the girl Joey dates who keeps punching him?",
         options: ["Katie", "Kathy", "Kaley", "Kara"],
         correctAnswer: "Katie",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -410,7 +410,7 @@ const quizData = {
         question: "What was the profession of Rachel's imaginary friend?",
         options: ["Astronaut", "Cowboy", "Pilot", "Stockbroker"],
         correctAnswer: "Stockbroker",
-        points: 30
+        difficulty: "medium",
         points: 20
       }
     ]
