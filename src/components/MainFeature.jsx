@@ -1,204 +1,203 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toast } from 'react-toastify';
-import { getIcon } from '../utils/iconUtils';
-
-// Quiz data by category
-const quizData = {
-  friends: {
-    name: "Friends",
-    icon: "coffee",
-    themeClass: "friends-theme",
-    color: "bg-friends-primary",
-    textColor: "text-friends-primary",
-    borderColor: "border-friends-primary",
-    questions: [
-      {
-        id: 1,
-        name: "Friends",
-        question: "What is the name of Ross's second wife?",
-        options: ["Emily", "Carol", "Susan", "Janice"],
-        correctAnswer: "Emily",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 2,
-        name: "Friends",
-        question: "What is Joey's catchphrase?",
-        options: ["How YOU doin'?", "Can I BE any more?", "We were on a break!", "Smelly Cat!"],
-        correctAnswer: "How YOU doin'?",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 3,
-        name: "Friends",
-        question: "What is the name of Phoebe's twin sister?",
-        options: ["Ursula", "Regina", "Valerie", "Cheryl"],
-        correctAnswer: "Ursula",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 4,
-        name: "Friends",
-        question: "What is the name of Ross and Monica's dog when they were growing up?",
-        options: ["Rover", "Chi-Chi", "Marcel", "LaPooh"],
-        correctAnswer: "Chi-Chi",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 5,
-        name: "Friends",
-        question: "What's the name of the coffee shop where the friends always hang out?",
-        options: ["Central Brew", "Coffee Town", "Central Perk", "Daily Grind"],
-        correctAnswer: "Central Perk",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 6,
-        name: "Friends",
-        question: "What instrument does Phoebe primarily play?",
-        options: ["Guitar", "Drums", "Keyboard", "Tambourine"],
-        correctAnswer: "Guitar",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 7,
-        name: "Friends",
-        question: "How many times did Ross get divorced?",
-        options: ["1", "2", "3", "4"],
-        correctAnswer: "3",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 8,
-        name: "Friends",
-        question: "What's the name of Joey's stuffed penguin?",
-        options: ["Hugsy", "Waddles", "Snowflake", "Chilly"],
-        correctAnswer: "Hugsy",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 9,
-        name: "Friends",
-        question: "What is Monica's biggest pet peeve?",
-        options: ["Dirty dishes", "Animals", "People touching her hair", "Messy rooms"],
-        correctAnswer: "Animals", // Corrected based on common knowledge (it's actually animals/messy, but "Animals" is an option)
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 10,
-        name: "Friends",
-        question: "What does Rachel make for dessert on Thanksgiving that gets mixed up with a traditional English trifle?",
-        options: ["Shepherd's Pie", "Cottage Pie", "Beef Wellington", "Custard Pie"],
-        correctAnswer: "Shepherd's Pie",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 11,
-        name: "Friends",
-        question: "What is the name of Chandler's TV Guide that's addressed to?",
-        options: ["Ms. Chanandler Bong", "Ms. Chanandler Bang", "Mr. Chanandler Bong", "Mrs. Chanandler Bong"],
-        correctAnswer: "Ms. Chanandler Bong",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 12,
-        name: "Friends",
-        question: "What's the profession of Rachel's fiancé Barry?",
-        options: ["Doctor", "Dentist", "Lawyer", "Orthodontist"],
-        correctAnswer: "Orthodontist",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 13,
-        name: "Friends",
-        question: "What is Joey's agent's name?",
-        options: ["Estelle", "Stella", "Ellen", "Emma"],
-        correctAnswer: "Estelle",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 14,
-        name: "Friends",
-        question: "What did Ross try to teach Rachel in the planetarium on their first date?",
-        options: ["About black holes", "How stars are born", "About his dissertation", "How planets rotate"],
-        correctAnswer: "About his dissertation",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 15,
-        name: "Friends",
-        question: "What is the name of Chandler's roommate after Joey moves out?",
-        options: ["Eddie", "Russ", "Eric", "Gunther"],
-        correctAnswer: "Eddie",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 16,
-        name: "Friends",
-        question: "What is Chandler afraid of?",
-        options: ["Spiders", "Commitment", "Dogs", "Public speaking"],
-        correctAnswer: "Commitment",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 17,
-        name: "Friends",
-        question: "Which friend posed nude for a painting?",
-        options: ["Ross", "Joey", "Chandler", "Phoebe"],
-        correctAnswer: "Ross",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 18,
-        name: "Friends",
-        question: "What name does Phoebe legally change hers to?",
-        options: ["Princess Consuela Banana-Hammock", "Pheobe Buffay-Hannigan", "Phoebe Abby", "Princess Banana"],
-        correctAnswer: "Princess Consuela Banana-Hammock",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 19,
-        name: "Friends",
-        question: "What did Monica get Ross for his birthday when they were kids that he wanted to trade for a G.I. Joe?",
-        options: ["A bike", "A pin", "A doll", "A comic book"],
-        correctAnswer: "A pin",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 20,
-        name: "Friends",
-        question: "What is Joey's favorite food?",
-        options: ["Pizza", "Sandwiches", "Chicken", "Pasta"],
-        correctAnswer: "Sandwiches",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 21,
-        name: "Friends",
-        question: "Which character has a brother named Frank Jr.?",
-        options: ["Monica", "Rachel", "Phoebe", "Joey"],
-        correctAnswer: "Phoebe",
+ 1248:             </div> {/* Added closing div for flex */}
+ 1249:
+ 1250:            {/* Progress Bar */}
+ 1251:            <div className="w-full bg-surface-200 dark:bg-surface-700 rounded-full h-2 mb-6">
+ 1252:              <motion.div
+ 1253:                className={`h-2 rounded-full ${getCategoryData().color}`}
+ 1254:                initial={{ width: `${(currentQuestionIndex / quizQuestions.length) * 100}%` }}
+ 1255:                animate={{ width: `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%` }}
+ 1256:                transition={{ duration: 0.5 }}
+ 1257:              ></motion.div>
+ 1258:            </div> {/* Added closing div */}
+ 1259:
+ 1260:            {/* Question */}
+ 1261:            {getCurrentQuestion() && (
+ 1262:              <div>
+ 1263:                {/* Special Round Indicators */}
+ 1264:                {(currentRound.isDoublePoints || currentRound.isSuddenDeath) && (
+ 1265:                  <motion.div
+ 1266:                    className="mb-4 p-2 rounded-lg text-center font-bold"
+ 1267:                    initial={{ scale: 0.9, opacity: 0.5 }}
+ 1268:                    animate={{ scale: 1, opacity: 1 }}
+ 1269:                    transition={{ yoyo: Infinity, duration: 1 }}
+ 1270:                  >
+ 1271:                    {currentRound.isDoublePoints &&
+ 1272:                      <span className="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100 px-3 py-1 rounded-full mr-2">
+ 1273:                        Double Points Round!
+ 1274:                      </span>
+ 1275:                    }
+ 1276:                    {currentRound.isSuddenDeath &&
+ 1277:                      <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 px-3 py-1 rounded-full">
+ 1278:                        Sudden Death!
+ 1279:                      </span>
+ 1280:                    }
+ 1281:                  </motion.div>
+ 1282:                )}
+ 1283:
+ 1284:                {/* Timer Display */}
+ 1285:                <div className="mb-4">
+ 1286:                     <div className="text-sm font-medium text-surface-600 dark:text-surface-300 mb-1 text-right">Time Left: {timeLeft}s</div>
+ 1287:                      <div className={`w-full h-2 rounded-full bg-surface-200 dark:bg-surface-700 ${timeLeft < 10 ? 'animate-pulse' : ''}`}>
+ 1288:                        <motion.div
+ 1289:                          className={`h-2 rounded-full ${
+ 1290:                            timeLeft > 20 ? 'bg-green-500' :
+ 1291:                            timeLeft > 10 ? 'bg-yellow-500' : 'bg-red-500'
+ 1292:                          }`}
+ 1293:                          initial={{ width: `100%` }} // Start from 100%
+ 1294:                          animate={{ width: `${(timeLeft / 30) * 100}%` }} // Animate based on time left
+ 1295:                          transition={{ duration: 1, ease: "linear" }} // Linear transition for smooth timer
+ 1296:                        ></motion.div>
+ 1297:                      </div>
+ 1298:                </div> {/* Added closing div */}
+ 1299:
+ 1300:              <div>
+ 1301:                <h4 className="text-xl md:text-2xl font-bold mb-6 question-text">
+ 1302:                  {getCurrentQuestion().question}
+ 1303:                </h4>
+ 1304:
+ 1305:                {/* Answer Options */}
+ 1306:                <div className="space-y-3">
+ 1307:                  {getCurrentQuestion().options.map((option, index) => (
+ 1308:                    <motion.button // Changed from div to button for accessibility
+ 1309:                      key={index}
+ 1310:                      onClick={() => handleAnswerSelect(option)}
+ 1311:                      className={`w-full text-left p-4 rounded-xl border-2 cursor-pointer transition-all ${
+ 1312:                        selectedAnswer !== null // If an answer is selected, apply feedback styles
+ 1313:                          ? option === getCurrentQuestion().correctAnswer
+ 1314:                            ? "border-green-500 bg-green-50 dark:bg-green-900/30" // Correct answer always highlighted green
+ 1315:                            : selectedAnswer === option
+ 1316:                              ? "border-red-500 bg-red-50 dark:bg-red-900/30" // Selected wrong answer highlighted red
+ 1317:                              : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 opacity-60` // Unselected wrong answers dimmed
+ 1318:                          : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600` // Default style before selection
+ 1319:                      }
+ 1320:                      ${selectedAnswer === option && isWrong ? "wrong-highlight" : ""}
+ 1321:                      `}
+ 1322:                      whileHover={selectedAnswer === null ? { scale: 1.02 } : {}} // Only scale on hover if no answer is selected
+ 1323:                      whileTap={selectedAnswer === null ? { scale: 0.98 } : {}} // Only scale on tap if no answer is selected
+ 1324:                      disabled={selectedAnswer !== null} // Disable clicking after selection
+ 1325:                    >
+ 1326:                      <div className="flex justify-between items-center">
+ 1327:                        <div className="flex items-center">
+ 1328:                          <span className={`flex items-center justify-center w-8 h-8 rounded-full mr-3 ${
+ 1329:                            selectedAnswer !== null // If an answer is selected, show check/x, otherwise show letter
+ 1330:                              ? option === getCurrentQuestion().correctAnswer
+ 1331:                                ? "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300"
+ 1332:                                : selectedAnswer === option
+ 1333:                                  ? "bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300"
+ 1334:                                  : "bg-surface-200 dark:bg-surface-600 text-surface-600 dark:text-surface-300" // Unselected answers
+ 1335:                              : "bg-surface-100 dark:bg-surface-600 text-surface-600 dark:text-surface-300" // Before selection
+ 1336:                          }`}>
+ 1337:                            {selectedAnswer !== null ? (
+ 1338:                              option === getCurrentQuestion().correctAnswer ? (
+ 1339:                                <CheckIcon className="h-5 w-5" />
+ 1340:                              ) : selectedAnswer === option ? (
+ 1341:                                <motion.div
+ 1342:                                  animate={isWrong ? { // Only animate X if the selected answer was wrong
+ 1343:                                    rotate: [-5, 5, -5, 5, -5, 5, -5, 5, 0],
+ 1344:                                    transition: {
+ 1345:                                      duration: 0.5,
+ 1346:                                      ease: "easeInOut"
+ 1347:                                    }
+ 1348:                                  } : {}}
+ 1349:                                  ><XIcon className="h-5 w-5" />
+ 1350:                                </motion.div>
+ 1351:                              ) : (
+ 1352:                                String.fromCharCode(65 + index) // Show letter for unselected answers after selection
+ 1353:                              )
+ 1354:                            ) : (
+ 1355:                              String.fromCharCode(65 + index) // Show letter before selection
+ 1356:                            )}
+ 1357:                          </span>
+ 1358:                          <span className="fun-text">{option}</span>
+ 1359:                        </div>
+ 1360:
+ 1361:                        {/* Points indicator visible only AFTER an answer is selected, on the correct option */}
+ 1362:                        {selectedAnswer !== null && option === getCurrentQuestion().correctAnswer && (
+ 1363:                          <span className={`text-sm font-semibold ${difficultyColors[getCurrentQuestion().difficulty || 'medium']}`}>
+ 1364:                             {getCurrentQuestion().points && `+${currentRound.isDoublePoints ? getCurrentQuestion().points * 2 : getCurrentQuestion().points} pts`}
+ 1365:                          </span>
+ 1366:                        )}
+ 1367:
+ 1368:                      </div> {/* Added closing div */}
+ 1369:                    </motion.button>
+ 1370:                   ))} {/* Added closing parenthesis and brace */}
+ 1371:                </div> {/* Added closing div */}
+ 1372:
+ 1373:                {/* Score and Points Display */}
+ 1374:                <div className="mt-6 text-center flex justify-between">
+ 1375:                  <p className="text-surface-600 dark:text-surface-300 fun-text">
+ 1376:                    Score: <span className="font-bold">{score}</span> / {quizQuestions.length}
+ 1377:                  </p>
+ 1378:                  <p className="text-surface-600 dark:text-surface-300 fun-text">
+ 1379:                    Total Points: <span className="font-bold">{points}</span>
+ 1380:                  </p>
+ 1381:                </div> {/* Added closing div */}
+ 1382:              </div> {/* Added closing div */}
+ 1383:              </div> {/* Added closing div */}
+ 1384:            )} {/* Added closing parenthesis and brace */}
+ 1385:          </motion.div> {/* Added closing motion.div */}
+ 1386:        ) : (
+ 1387:          // Screen 4: End Game Results Screen
+ 1388:          <motion.div
+ 1389:            key="results-screen"
+ 1390:            initial={{ opacity: 0, y: 20 }}
+ 1391:            animate={{ opacity: 1, y: 0 }}
+ 1392:            exit={{ opacity: 0, y: -20 }}
+ 1393:            transition={{ duration: 0.3 }}
+ 1394:            className={`bg-white/90 dark:bg-surface-800/90 rounded-2xl p-6 md:p-8 shadow-card text-center ${getCategoryData().themeClass}`}
+ 1395:          >
+ 1396:            <motion.div
+ 1397:              initial={{ scale: 0 }}
+ 1398:              animate={{ scale: 1, rotate: [0, 10, -10, 0] }}
+ 1399:              transition={{ type: "spring", stiffness: 500, damping: 15, delay: 0.2 }}
+ 1400:              className={`w-20 h-20 mx-auto rounded-full ${getCategoryData().color} flex items-center justify-center mb-6`}
+ 1401:            >
+ 1402:              <TrophyIcon className="h-10 w-10 text-white" />
+ 1403:            </motion.div>
+ 1404:
+ 1405:            <h2 className="text-2xl md:text-3xl font-bold mb-3 fun-title">Quiz Completed!</h2>
+ 1406:
+ 1407:            <div className="mb-8 fun-text">
+ 1408:              <p className="text-xl">
+ 1409:                Your Score: <span className="font-bold">{score}</span> out of {quizQuestions.length}
+ 1410:              </p>
+ 1411:              <p className="text-xl mt-2">
+ 1412:                Total Points: <span className="font-bold">{points}</span>
+ 1413:              </p>
+ 1414:              <p className="text-surface-600 dark:text-surface-300 mt-2">
+ 1415:                {score === quizQuestions.length
+ 1416:                  ? "Perfect! You're a true fan!"
+ 1417:                  : score >= quizQuestions.length * 0.9
+ 1418:                  ? "Outstanding! A real expert!"
+ 1419:                  : score >= quizQuestions.length * 0.7
+ 1420:                  ? "Great job! You really know your stuff!"
+ 1421:                  : score >= quizQuestions.length * 0.5
+ 1422:                  ? "Good effort! You know quite a bit!"
+ 1423:                  : "Keep practicing to improve your score!"}
+ 1424:              </p>
+ 1425:            </div>
+ 1426:
+ 1427:            <div className="flex flex-col sm:flex-row justify-center gap-4">
+ 1428:              <motion.button
+ 1429:                onClick={restartQuiz}
+ 1430:                className={`btn py-3 px-6 rounded-xl ${getCategoryData().color} text-white font-semibold`}
+ 1431:                whileHover={{ scale: 1.05 }}
+ 1432:                whileTap={{ scale: 0.95 }}
+ 1433:              >
+ 1434:                Play Again ({getCategoryData().name} - {selectedLevel ? selectedLevel.charAt(0).toUpperCase() + selectedLevel.slice(1) : ''}) {/* Show level name */}
+ 1435:              </motion.button>
+ 1436:
+ 1437:              <motion.button
+ 1438:                onClick={goBackToCategories}
+ 1439:                className="btn py-3 px-6 rounded-xl bg-surface-200 dark:bg-surface-700 text-surface-800 dark:text-surface-100 font-semibold"
+ 1440:                whileHover={{ scale: 1.05 }}
+ 1441:                whileTap={{ scale: 0.95 }}
+ 1442:              >
+ 1443:                Choose Another Category
+ 1444:              </motion.button>
+ 1445:            </div>
+ 1446:          </motion.div> {/* Added closing motion.div */}
+ 1447:        )} {/* Added closing parenthesis and brace */}
         difficulty: "medium",
         points: 20
       },
@@ -927,6 +926,7 @@ const MainFeature = ({ onBackToWelcome }) => {
   // State variables
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState(null);
   const [gameEnded, setGameEnded] = useState(false);
   const [points, setPoints] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
@@ -974,11 +974,30 @@ const MainFeature = ({ onBackToWelcome }) => {
   // Handle category selection
   const handleCategorySelect = (category) => {
     const allQuestions = quizData[category].questions;
-
-    // Get 30 questions, or all if fewer than 30
-    const selectedQuestions = shuffleArray(allQuestions).slice(0, Math.min(30, allQuestions.length));
-
     setSelectedCategory(category);
+    setSelectedLevel(null); // Reset level when category changes
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setPoints(0);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    resetAnimationStates();
+    setGameEnded(false);
+    setQuizQuestions([]); // Clear questions until level is selected
+    setCurrentRound({ isDoublePoints: false, isSuddenDeath: false });
+    setTimerActive(false); // Stop timer
+    setTimeLeft(30); // Reset timer
+  };
+
+  // Handle level selection
+  const handleLevelSelect = (level) => {
+    const allQuestions = quizData[selectedCategory].questions;
+    const filteredQuestions = allQuestions.filter(q => q.difficulty === level);
+
+    // Get 30 questions from the filtered list, or all if fewer than 30
+    const selectedQuestions = shuffleArray(filteredQuestions).slice(0, Math.min(30, filteredQuestions.length));
+
+    setSelectedLevel(level);
     setQuizQuestions(selectedQuestions);
     setCurrentQuestionIndex(0);
     setScore(0);
@@ -986,15 +1005,10 @@ const MainFeature = ({ onBackToWelcome }) => {
     setSelectedAnswer(null);
     setShowResult(false);
     resetAnimationStates();
-
-    // Set up timer
-    setTimeLeft(30);
-    setTimerActive(true);
-
-    // Set up a random twist for first question
-    setCurrentRound({ isDoublePoints: Math.random() < 0.2, isSuddenDeath: Math.random() < 0.1 });
-
     setGameEnded(false);
+    setCurrentRound({ isDoublePoints: Math.random() < 0.2, isSuddenDeath: Math.random() < 0.1 });
+    setTimerActive(true); // Start timer only when quiz begins
+    setTimeLeft(30); // Reset timer
   };
 
   // Handle answer selection
