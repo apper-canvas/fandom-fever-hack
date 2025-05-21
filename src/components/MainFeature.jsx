@@ -328,16 +328,18 @@ const quizData = {
       {  
         id: 40,
         question: "What was Phoebe's profession before becoming a masseuse?",
+        options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
       },
       {
-        correctAnswer: "Real Estate Agent",
+        points: 10
+      },
         difficulty: "easy",
         points: 10
         id: 41,
         question: "What was Joey's fake stage name when he was trying to be younger?",
         options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
         correctAnswer: "Joseph Stalin",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -345,7 +347,7 @@ const quizData = {
         question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
         options: ["Mexico", "Russia", "Yemen", "Canada"],
         correctAnswer: "Yemen",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -353,7 +355,7 @@ const quizData = {
         question: "What caused the fire in Phoebe and Rachel's apartment?",
         options: ["A hair straightener", "A candle", "The stove", "Rachel's hair curling iron"],
         correctAnswer: "Rachel's hair curling iron",
-        difficulty: "medium",
+        points: 20
         points: 20
       },
       {
@@ -361,7 +363,7 @@ const quizData = {
         question: "What was the profession of Rachel's assistant Tag?",
         options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
         correctAnswer: "There was no previous profession mentioned",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -369,7 +371,7 @@ const quizData = {
         question: "What was the job Joey had in a department store?",
         options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
         correctAnswer: "Cologne sprayer",
-        difficulty: "medium",
+        points: 20
         points: 20
       },
       {
@@ -377,7 +379,7 @@ const quizData = {
         question: "What did Chandler's mother give the group when she visited?",
         options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
         correctAnswer: "Books she wrote",
-        difficulty: "medium",
+        points: 20
         points: 20
       },
       {
@@ -385,7 +387,7 @@ const quizData = {
         question: "What profession did Rachel's father want her to pursue?",
         options: ["Doctor", "Lawyer", "Dentist", "Businesswoman"],
         correctAnswer: "Doctor",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -393,7 +395,7 @@ const quizData = {
         question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
         options: ["LOVE", "VEGAS", "LOSER", "ROSS"],
         correctAnswer: "ROSS",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -401,7 +403,7 @@ const quizData = {
         question: "What is the name of the girl Joey dates who keeps punching him?",
         options: ["Katie", "Kathy", "Kaley", "Kara"],
         correctAnswer: "Katie",
-        difficulty: "hard",
+        points: 30
         points: 30
       },
       {
@@ -409,19 +411,7 @@ const quizData = {
         question: "What was the profession of Rachel's imaginary friend?",
         options: ["Astronaut", "Cowboy", "Pilot", "Stockbroker"],
         correctAnswer: "Stockbroker",
-        difficulty: "hard",
         points: 30
-      },
-      {
-        correctAnswer: "Colombia",
-        difficulty: "easy",
-        points: 10
-      },
-        id: 51,
-        question: "What's the name of the woman who gives birth to the triplets that Phoebe carries as a surrogate?",
-        options: ["Alice", "Alicia", "Allison", "Anne"],
-        correctAnswer: "Alice",
-        difficulty: "medium",
         points: 20
       }
     ]
@@ -436,12 +426,6 @@ const quizData = {
     questions: [
       {
         id: 1,
-    borderColor: "border-modernfamily-primary",
-        correctAnswer: "Lily",
-        difficulty: "easy",
-        points: 10
-      {
-        id: 1,
         question: "What is the profession of Phil Dunphy?",
         options: ["Lawyer", "Real Estate Agent", "Engineer", "Teacher"],
         correctAnswer: "Real Estate Agent",
@@ -450,9 +434,6 @@ const quizData = {
       },
       {
         id: 2,
-        correctAnswer: "Manuel",
-        difficulty: "medium",
-        points: 20
         question: "In which country was Gloria born?",
         options: ["Mexico", "Brazil", "Colombia", "Venezuela"],
         correctAnswer: "Colombia",
@@ -461,9 +442,6 @@ const quizData = {
       },
       {
         id: 3,
-        correctAnswer: "UCLA",
-        difficulty: "medium",
-        points: 20
         question: "What is Jay's business?",
         options: ["Restaurants", "Car Dealerships", "Closets", "Real Estate"],
         correctAnswer: "Closets",
@@ -472,9 +450,6 @@ const quizData = {
       },
       {
         id: 4,
-        correctAnswer: "Stella",
-        difficulty: "easy",
-        points: 10
         question: "What is the name of Cam and Mitchell's daughter?",
         options: ["Lily", "Lucy", "Daisy", "Rose"],
         correctAnswer: "Lily",
@@ -483,9 +458,6 @@ const quizData = {
       },
       {
         id: 5,
-        correctAnswer: "Trumpet",
-        difficulty: "medium",
-        points: 20
         question: "What is Manny's full first name?",
         options: ["Manuel", "Manfred", "Manuelo", "Manolo"],
         correctAnswer: "Manuel",
@@ -494,9 +466,6 @@ const quizData = {
       },
       {
         id: 6,
-        correctAnswer: "Pritchett",
-        difficulty: "easy",
-        points: 10
         question: "Which university did Haley get accepted to, but then got kicked out of?",
         options: ["UCLA", "USC", "Stanford", "Berkeley"],
         correctAnswer: "UCLA",
@@ -505,9 +474,6 @@ const quizData = {
       },
       {
         id: 7,
-        correctAnswer: "Music Teacher",
-        difficulty: "medium",
-        points: 20
         question: "What is the name of the family dog?",
         options: ["Stella", "Bruno", "Rex", "Lola"],
         correctAnswer: "Stella",
@@ -516,9 +482,6 @@ const quizData = {
       },
       {
         id: 8,
-        correctAnswer: "Gil Thorpe",
-        difficulty: "medium",
-        points: 20
         question: "What instrument does Luke play?",
         options: ["Guitar", "Piano", "Drums", "Trumpet"],
         correctAnswer: "Trumpet",
@@ -551,12 +514,6 @@ const quizData = {
       },
       {
         id: 12,
-        correctAnswer: "Walt",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 13,
         question: "What is the name of Cam's clown persona?",
         options: ["Fizbo", "Bozo", "Chuckles", "Giggle"],
         correctAnswer: "Fizbo",
@@ -564,7 +521,7 @@ const quizData = {
         points: 10
       },
       {
-        id: 14,
+        id: 13,
         question: "What is the name of Phil's real estate company?",
         options: ["Dunphy Properties", "Dunphy Real Estate", "Phil's Realty", "Pritchett Realty"],
         correctAnswer: "Dunphy Real Estate",
@@ -572,7 +529,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 15,
+        id: 14,
         question: "What are the names of Jay's and Gloria's dog and son?",
         options: ["Stella and Fulgencio", "Rex and Joe", "Bruno and Manny", "Ralph and Fulgencio"],
         correctAnswer: "Stella and Fulgencio",
@@ -580,7 +537,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 16,
+        id: 15,
         question: "What is Claire's job at her father's company?",
         options: ["CEO", "COO", "CFO", "CTO"],
         correctAnswer: "CEO",
@@ -588,7 +545,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 17,
+        id: 16,
         question: "What is the name of Mitchell and Cameron's cat?",
         options: ["Larry", "Felix", "Whiskers", "There was no cat"],
         correctAnswer: "Larry",
@@ -596,7 +553,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 18,
+        id: 17,
         question: "What college does Alex attend?",
         options: ["Harvard", "Caltech", "Yale", "Princeton"],
         correctAnswer: "Caltech",
@@ -604,7 +561,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 19,
+        id: 18,
         question: "What color was Cam and Mitchell's kitchen before they renovated it?",
         options: ["Green", "Yellow", "Blue", "Orange"],
         correctAnswer: "Yellow",
@@ -612,7 +569,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 20,
+        id: 19,
         question: "What is the name of Gloria's ex-husband?",
         options: ["Javier", "Roberto", "Jesús", "Carlos"],
         correctAnswer: "Javier",
@@ -620,7 +577,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 21,
+        id: 20,
         question: "From which state did Cameron come?",
         options: ["Missouri", "Kansas", "Oklahoma", "Iowa"],
         correctAnswer: "Missouri",
@@ -628,7 +585,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 22,
+        id: 21,
         question: "What was Luke's original name going to be?",
         options: ["Duke", "Lucas", "Liam", "Louis"],
         correctAnswer: "Lucas",
@@ -636,7 +593,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 23,
+        id: 22,
         question: "What did Phil buy Jay for Christmas that he doesn't like?",
         options: ["A TV", "A car", "A robe", "A watch"],
         correctAnswer: "A robe",
@@ -644,7 +601,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 24,
+        id: 23,
         question: "What does Gloria call her grandmother?",
         options: ["Abuela", "Mamacita", "Nana", "Pilar"],
         correctAnswer: "Pilar",
@@ -652,7 +609,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 25,
+        id: 24,
         question: "What is Mitchell's middle name?",
         options: ["Vincent", "Alan", "Scott", "Andrew"],
         correctAnswer: "Vincent",
@@ -660,7 +617,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 26,
+        id: 25,
         question: "What causes Cameron to freak out in the grocery store?",
         options: ["Spilled milk", "A spider", "Someone making fun of Lily", "Someone eating grapes without paying"],
         correctAnswer: "Someone eating grapes without paying",
@@ -668,7 +625,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 27,
+        id: 26,
         question: "What does Phil call his real estate work car?",
         options: ["Philippemobile", "The Property Portal", "The Dunphy Mobile", "The Real Estate Express"],
         correctAnswer: "The Real Estate Express",
@@ -676,7 +633,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 28,
+        id: 27,
         question: "What is the title of Phil's book?",
         options: ["Phil's-osophy", "Dunphy's Thoughts", "Phil's Way", "The Dunphy Files"],
         correctAnswer: "Phil's-osophy",
@@ -684,7 +641,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 29,
+        id: 28,
         question: "What animal did Cameron grow up raising on his farm?",
         options: ["Pigs", "Cows", "Chickens", "Horses"],
         correctAnswer: "Pigs",
@@ -692,7 +649,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 30,
+        id: 29,
         question: "What is the name of Haley's fashion blog?",
         options: ["Haley's Comet", "Fashion Forward", "Haley's Comments", "Dunphy Designs"],
         correctAnswer: "Haley's Comet",
@@ -700,7 +657,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 31,
+        id: 30,
         question: "What is Jay's favorite holiday?",
         options: ["Christmas", "Thanksgiving", "4th of July", "New Year's"],
         correctAnswer: "4th of July",
@@ -708,7 +665,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 32,
+        id: 31,
         question: "Which Dunphy child doesn't wear glasses?",
         options: ["Luke", "Alex", "Haley", "They all wear glasses sometimes"],
         correctAnswer: "Haley",
@@ -716,7 +673,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 33,
+        id: 32,
         question: "What is Phil's father's name?",
         options: ["Frank", "Fred", "Phillip Sr.", "Jim"],
         correctAnswer: "Frank",
@@ -724,7 +681,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 34,
+        id: 33,
         question: "What is Gloria afraid of?",
         options: ["Spiders", "Snakes", "Clowns", "Puppets"],
         correctAnswer: "Puppets",
@@ -732,7 +689,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 35,
+        id: 34,
         question: "What does Claire organize every Halloween?",
         options: ["A haunted house", "A costume contest", "Trick-or-treating", "A scary movie night"],
         correctAnswer: "A haunted house",
@@ -740,7 +697,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 36,
+        id: 35,
         question: "What is the name of Mitchell's law firm?",
         options: ["Pritchett & Associates", "Tucker & Pritchett Law", "Pleger & Babcock", "It's never mentioned"],
         correctAnswer: "Pleger & Babcock",
@@ -748,7 +705,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 37,
+        id: 36,
         question: "What invention did Phil create?",
         options: ["The Dunphy Double", "The Sock Roller", "Sock 'Em Boppers", "The Shoe-Shine Shampoo"],
         correctAnswer: "The Sock Roller",
@@ -756,7 +713,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 38,
+        id: 37,
         question: "What is the name of Cam and Mitchell's upstairs neighbors?",
         options: ["The Longs", "The Johnsons", "The Durants", "The Pattersons"],
         correctAnswer: "The Durants",
@@ -764,7 +721,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 39,
+        id: 38,
         question: "What country does Gloria confuse with Switzerland?",
         options: ["Sweden", "Belgium", "Austria", "Denmark"],
         correctAnswer: "Sweden",
@@ -772,7 +729,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 40,
+        id: 39,
         question: "What instrument did Manny play when he was younger?",
         options: ["Piano", "Violin", "Guitar", "Accordion"],
         correctAnswer: "Accordion",
@@ -780,7 +737,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 41,
+        id: 40,
         question: "What is Lily's middle name?",
         options: ["Mai", "Ling", "Tucker", "Elizabeth"],
         correctAnswer: "Tucker",
@@ -788,7 +745,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 42,
+        id: 41,
         question: "What is Gloria's mother's name?",
         options: ["Pilar", "Sofía", "Maria", "Dora"],
         correctAnswer: "Pilar",
@@ -796,7 +753,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 43,
+        id: 42,
         question: "What color is Jay and Gloria's front door?",
         options: ["Red", "Blue", "Green", "Black"],
         correctAnswer: "Red",
@@ -804,7 +761,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 44,
+        id: 43,
         question: "What is Phil allergic to?",
         options: ["Cats", "Bees", "Peanuts", "Cheese"],
         correctAnswer: "Bees",
@@ -812,7 +769,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 45,
+        id: 44,
         question: "What is the name of Claire's company?",
         options: ["Pritchett's Closets & Blinds", "Pritchett-Tucker Closets", "Pritchett's Closets", "Closet Kingdom"],
         correctAnswer: "Pritchett's Closets & Blinds",
@@ -820,7 +777,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 46,
+        id: 45,
         question: "What university did Claire drop out of?",
         options: ["UCLA", "UC Berkeley", "USC", "Stanford"],
         correctAnswer: "UCLA",
@@ -828,7 +785,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 47,
+        id: 46,
         question: "Where did Jay propose to Gloria?",
         options: ["A restaurant", "On vacation", "At home", "At a football game"],
         correctAnswer: "At a football game",
@@ -836,7 +793,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 48,
+        id: 47,
         question: "What is the name of Haley's boyfriend who is also a magician?",
         options: ["Phil", "Andy", "Dylan", "Rainer"],
         correctAnswer: "Rainer",
@@ -844,7 +801,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 49,
+        id: 48,
         question: "What did Cameron do as a child that earned him the nickname 'Calves of Steel'?",
         options: ["Football", "Ballet", "Soccer", "Catching pigs"],
         correctAnswer: "Catching pigs",
@@ -852,15 +809,20 @@ const quizData = {
         points: 30
       },
       {
-        id: 50,
+        id: 49,
         question: "What is the license plate of the Dunphy family car?",
         options: ["DUNPHY1", "CA4SALE", "LUVWRK", "HOMESALE"],
         correctAnswer: "CA4SALE",
         difficulty: "hard",
         points: 30
+      },
       {
-        id: 9,
-        correctAnswer: "Walt"
+        id: 50,
+        question: "What was the name of the elderly neighbor that Luke often visited?",
+        options: ["Walt", "Bill", "Jerry", "Herb"],
+        correctAnswer: "Walt",
+        difficulty: "medium",
+        points: 20
       }
     ]
   },
