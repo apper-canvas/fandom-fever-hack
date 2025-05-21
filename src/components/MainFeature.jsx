@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
+import { useCallback } from 'react';
 import { getIcon } from '../utils/iconUtils';
 
 // Quiz data by category
@@ -274,12 +275,70 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+// Confetti Component for correct answers
+const Confetti = ({ isActive }) => {
+  const [particles, setParticles] = useState([]);
+  
+  useEffect(() => {
+    if (!isActive) return;
+    
+    // Create particles for the confetti effect
+    const colors = ['#FFC700', '#FF0058', '#2E7DAF', '#43A047', '#8E24AA'];
+    const newParticles = [];
+    
+    for (let i = 0; i < 50; i++) {
+      newParticles.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 40 - 50,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        delay: Math.random() * 0.2,
+      });
+    }
+    
+    setParticles(newParticles);
+    
+    // Clean up particles after animation completes
+    const timer = setTimeout(() => {
+      setParticles([]);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, [isActive]);
+  
+  if (!isActive || particles.length === 0) return null;
+  
+  return (
+    <div className="fixed inset-0 pointer-events-none z-50">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute rounded-full"
+          style={{
+            width: particle.size,
+            height: particle.size,
+            backgroundColor: particle.color,
+            top: '40%',
+            left: `${particle.x}%`,
+          }}
+          initial={{ y: particle.y, opacity: 1, rotate: 0 }}
+          animate={{
+            y: window.innerHeight,
+            opacity: 0,
+            rotate: particle.rotation,
+          }}
+          transition={{ duration: 2, delay: particle.delay, ease: "easeOut" }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const MainFeature = ({ onBackToWelcome }) => {
   // State variables
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [gameEnded, setGameEnded] = useState(false);
   const [quizQuestions, setQuizQuestions] = useState([]);
@@ -292,6 +351,20 @@ const MainFeature = ({ onBackToWelcome }) => {
   const CoffeeIcon = getIcon('coffee');
   const HomeIcon = getIcon('home');
   const ZapIcon = getIcon('zap');
+  
+  // New state for tracking animation states
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  
+  const resetAnimationStates = useCallback(() => {
+    setIsCorrect(false);
+    setIsWrong(false);
+    setShowConfetti(false);
+  }, []);
   
   // Set up category icons mapping
   const categoryIcons = {
@@ -311,6 +384,7 @@ const MainFeature = ({ onBackToWelcome }) => {
     setScore(0);
     setSelectedAnswer(null);
     setShowResult(false);
+    resetAnimationStates();
     setGameEnded(false);
   };
   
@@ -326,9 +400,19 @@ const MainFeature = ({ onBackToWelcome }) => {
     if (answer === currentQuestion.correctAnswer) {
       setScore(prevScore => prevScore + 1);
       toast.success('Correct answer!');
+      setIsCorrect(true);
+      setShowConfetti(true);
     } else {
+      setIsWrong(true);
       toast.error(`Incorrect! Correct answer: ${currentQuestion.correctAnswer}`);
     }
+    
+    // Schedule animation reset
+    setTimeout(() => {
+      setIsCorrect(false);
+      setIsWrong(false);
+      setShowConfetti(false);
+    }, 2000);
     
     // Move to next question after a delay
     setTimeout(() => {
@@ -339,7 +423,7 @@ const MainFeature = ({ onBackToWelcome }) => {
       } else {
         setGameEnded(true);
       }
-    }, 1500);
+    }, 2000);
   };
   
   // Restart quiz
@@ -348,6 +432,7 @@ const MainFeature = ({ onBackToWelcome }) => {
     setScore(0);
     setSelectedAnswer(null);
     setShowResult(false);
+    resetAnimationStates();
     setGameEnded(false);
     
     // Shuffle questions
@@ -376,7 +461,9 @@ const MainFeature = ({ onBackToWelcome }) => {
   
   return (
     <div className="max-w-3xl mx-auto">
-      {/* Back Button */}
+      {/* Confetti effect for correct answers */}
+      <Confetti isActive={showConfetti} />
+      
       <button
         onClick={onBackToWelcome}
         className="mb-6 flex items-center text-surface-600 dark:text-surface-300 hover:text-primary dark:hover:text-primary transition-colors"
@@ -474,13 +561,22 @@ const MainFeature = ({ onBackToWelcome }) => {
                 {/* Answer Options */}
                 <div className="space-y-3">
                   {getCurrentQuestion().options.map((option, index) => (
-                    <motion.button
+                    <motion.div
                       key={index}
                       onClick={() => handleAnswerSelect(option)}
-                      className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                      className={`w-full text-left p-4 rounded-xl border-2 cursor-pointer transition-all ${
                         selectedAnswer === option
                           ? option === getCurrentQuestion().correctAnswer
-                            ? "border-green-500 bg-green-50 dark:bg-green-900/30"
+                            ? "border-green-500 bg-green-50 dark:bg-green-900/30 correct-answer"
+                            : "border-red-500 bg-red-50 dark:bg-red-900/30 wrong-answer"
+                          : selectedAnswer && option === getCurrentQuestion().correctAnswer
+                            ? "border-green-500 bg-green-50 dark:bg-green-900/30 pulse-correct"
+                            : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
+                      } ${
+                        (isCorrect && selectedAnswer === option && option === getCurrentQuestion().correctAnswer)
+                          ? "correct-highlight"
+                          : (isWrong && selectedAnswer === option)
+                            ? "wrong-highlight"
                             : "border-red-500 bg-red-50 dark:bg-red-900/30"
                           : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
                       }`}
@@ -501,7 +597,16 @@ const MainFeature = ({ onBackToWelcome }) => {
                               option === getCurrentQuestion().correctAnswer ? (
                                 <CheckIcon className="h-5 w-5" />
                               ) : (
-                                <XIcon className="h-5 w-5" />
+                                <motion.div
+                                  animate={isWrong ? {
+                                    rotate: [-5, 5, -5, 5, -5, 5, -5, 5, 0],
+                                    transition: {
+                                      duration: 0.5,
+                                      ease: "easeInOut"
+                                    }
+                                  } : {}}
+                                  ><XIcon className="h-5 w-5" />
+                                </motion.div>
                               )
                             ) : (
                               String.fromCharCode(65 + index) // A, B, C, D
@@ -512,7 +617,7 @@ const MainFeature = ({ onBackToWelcome }) => {
                         
                         {/* Check/X icon for selected answer */}
                         {selectedAnswer === option && (
-                          <motion.div
+                          <motion.span
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 500, damping: 15 }}
@@ -522,11 +627,11 @@ const MainFeature = ({ onBackToWelcome }) => {
                             ) : (
                               <XIcon className="h-6 w-6 text-red-500" />
                             )}
-                          </motion.div>
+                          </motion.span>
                         )}
                       </div>
-                    </motion.button>
-                  ))}
+                    </motion.div>
+                   ))}
                 </div>
                 
                 {/* Score Display */}
