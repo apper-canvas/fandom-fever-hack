@@ -329,17 +329,16 @@ const quizData = {
         id: 40,
         question: "What was Phoebe's profession before becoming a masseuse?",
         options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
-      },
-      {
-        points: 10
-      },
+        correctAnswer: "Telemarketer",
         difficulty: "easy",
         points: 10
+      },
+      {
         id: 41,
         question: "What was Joey's fake stage name when he was trying to be younger?",
         options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
         correctAnswer: "Joseph Stalin",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -347,7 +346,7 @@ const quizData = {
         question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
         options: ["Mexico", "Russia", "Yemen", "Canada"],
         correctAnswer: "Yemen",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -355,7 +354,7 @@ const quizData = {
         question: "What caused the fire in Phoebe and Rachel's apartment?",
         options: ["A hair straightener", "A candle", "The stove", "Rachel's hair curling iron"],
         correctAnswer: "Rachel's hair curling iron",
-        points: 20
+        difficulty: "medium",
         points: 20
       },
       {
@@ -363,7 +362,7 @@ const quizData = {
         question: "What was the profession of Rachel's assistant Tag?",
         options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
         correctAnswer: "There was no previous profession mentioned",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -371,7 +370,7 @@ const quizData = {
         question: "What was the job Joey had in a department store?",
         options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
         correctAnswer: "Cologne sprayer",
-        points: 20
+        difficulty: "medium",
         points: 20
       },
       {
@@ -379,7 +378,7 @@ const quizData = {
         question: "What did Chandler's mother give the group when she visited?",
         options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
         correctAnswer: "Books she wrote",
-        points: 20
+        difficulty: "medium",
         points: 20
       },
       {
@@ -387,7 +386,7 @@ const quizData = {
         question: "What profession did Rachel's father want her to pursue?",
         options: ["Doctor", "Lawyer", "Dentist", "Businesswoman"],
         correctAnswer: "Doctor",
-        points: 30
+        difficulty: "hard",
         points: 30
       },
       {
@@ -419,7 +418,7 @@ const quizData = {
   modernfamily: {
     name: "Modern Family",
     icon: "home",
-    themeClass: "modernfamily-theme",
+        difficulty: "hard",
     color: "bg-modernfamily-primary",
     textColor: "text-modernfamily-primary",
     borderColor: "border-modernfamily-primary",
@@ -427,7 +426,7 @@ const quizData = {
       {
         id: 1,
         question: "What is the profession of Phil Dunphy?",
-        options: ["Lawyer", "Real Estate Agent", "Engineer", "Teacher"],
+        difficulty: "hard",
         correctAnswer: "Real Estate Agent",
         difficulty: "easy",
         points: 10
@@ -435,8 +434,8 @@ const quizData = {
       {
         id: 2,
         question: "In which country was Gloria born?",
-        options: ["Mexico", "Brazil", "Colombia", "Venezuela"],
-        correctAnswer: "Colombia",
+        difficulty: "hard",
+        points: 30
         difficulty: "easy",
         points: 10
       },
