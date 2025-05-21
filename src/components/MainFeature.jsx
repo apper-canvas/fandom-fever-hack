@@ -574,13 +574,12 @@ const MainFeature = ({ onBackToWelcome }) => {
                             : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
                       } 
                       ${
-                        selectedAnswer === option ? (
+                        selectedAnswer === option 
+                          ? (
                           (isCorrect && option === getCurrentQuestion().correctAnswer)
                             ? "correct-highlight"
-                            : isWrong
-                            ? "wrong-highlight"
-                            : "border-red-500 bg-red-50 dark:bg-red-900/30"
-                          : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
+                            : (isWrong ? "wrong-highlight" : "border-red-500 bg-red-50 dark:bg-red-900/30")
+                          ) : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
                       }`}
                       whileHover={!selectedAnswer ? { scale: 1.02 } : {}}
                       whileTap={!selectedAnswer ? { scale: 0.98 } : {}}
