@@ -45,7 +45,9 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-        heading: ['Inter', 'ui-sans-serif', 'system-ui']
+        heading: ['Inter', 'ui-sans-serif', 'system-ui'],
+        comic: ['"Bangers"', 'cursive', 'sans-serif'],
+        handwritten: ['"Architects Daughter"', 'cursive', 'sans-serif']
       },
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',

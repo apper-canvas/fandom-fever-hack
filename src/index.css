@@ -14,24 +14,36 @@
     @apply font-sans text-surface-800 dark:text-surface-100 bg-surface-50 dark:bg-surface-900 min-h-screen;
   }
   
+  /* Base heading styles */
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
   }
   
+  /* Fun font styles for titles */
+  .fun-title {
+    @apply font-comic tracking-wide;
+  }
+  
+  /* Fun font styles for content */
+  .fun-text {
+    @apply font-handwritten;
+  }
+  
+  /* Quiz question text */
+  .question-text {
+    @apply font-handwritten text-lg;
+  }
+  
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-3xl md:text-4xl lg:text-5xl font-comic tracking-wide;
   }
   
   h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply text-2xl md:text-3xl lg:text-4xl font-comic;
   }
   
   h3 {
-    @apply text-xl md:text-2xl lg:text-3xl;
-  }
-  
-  h4 {
-    @apply text-lg md:text-xl;
+    @apply text-xl md:text-2xl lg:text-3xl font-handwritten;
   }
 }
 
