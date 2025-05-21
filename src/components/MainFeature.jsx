@@ -572,10 +572,12 @@ const MainFeature = ({ onBackToWelcome }) => {
                           : selectedAnswer && option === getCurrentQuestion().correctAnswer
                             ? "border-green-500 bg-green-50 dark:bg-green-900/30 pulse-correct"
                             : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
-                      } ${
-                        (isCorrect && selectedAnswer === option && option === getCurrentQuestion().correctAnswer)
-                          ? "correct-highlight"
-                          : (isWrong && selectedAnswer === option)
+                      } 
+                      ${
+                        selectedAnswer === option ? (
+                          (isCorrect && option === getCurrentQuestion().correctAnswer)
+                            ? "correct-highlight"
+                            : isWrong
                             ? "wrong-highlight"
                             : "border-red-500 bg-red-50 dark:bg-red-900/30"
                           : `${getCategoryData().borderColor} bg-white/60 dark:bg-surface-700/60 hover:bg-surface-100 dark:hover:bg-surface-600`
