@@ -62,10 +62,10 @@ const Home = ({ darkMode, toggleDarkMode }) => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-comic font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Test Your Fandom Knowledge!
             </h2>
-            <p className="text-lg sm:text-xl mb-6 text-surface-600 dark:text-surface-300">
+            <p className="text-lg sm:text-xl mb-6 text-surface-600 dark:text-surface-300 font-handwritten">
               Challenge yourself with trivia about Friends, Modern Family, and Harry Potter
             </p>
             
@@ -85,7 +85,7 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                 </motion.div>
               </div>
               <h3 className="text-xl font-semibold mb-2">How to Play</h3>
-              <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300">
+              <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
                 <li className="flex items-start">
                   <span className="mr-2 text-primary">•</span>
                   <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
