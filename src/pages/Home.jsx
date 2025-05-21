@@ -114,8 +114,8 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                   <div className="font-medium">{category.name}</div>
                 </motion.div>
               ))}
-            </div>
-          </motion.div> {/* Correct closing tag for the main welcome motion.div */}
+            </div> {/* Correct closing tag for the div wrapping the map */}
+          </motion.div>
         ) : (
           <MainFeature onBackToWelcome={() => setShowWelcome(true)} />
         )}
