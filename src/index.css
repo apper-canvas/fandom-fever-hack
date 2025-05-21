@@ -66,8 +66,8 @@
   
  .card {
     @apply bg-white dark:bg-surface-800 rounded-2xl shadow-card p-6 /* Removed semicolon from @apply line */;
-  } /* Removed semicolon from @apply line */
-}
+  }
+  
 
 @layer utilities {
  .scrollbar-hide {

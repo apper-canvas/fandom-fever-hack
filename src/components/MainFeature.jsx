@@ -336,13 +336,6 @@ const MainFeature = ({ onBackToWelcome }) => {
     },
   }), []);
 
-  const difficultyColors = {
-    easy: "text-green-600 dark:text-green-400",
-    medium: "text-yellow-600 dark:text-yellow-400",
-    hard: "text-red-600 dark:text-red-400",
-  };
-
-  const getCategoryData = () => categoryData[selectedCategory] || {};
 
   const getCurrentQuestion = () => quizQuestions[currentQuestionIndex];
 
@@ -387,6 +380,9 @@ const MainFeature = ({ onBackToWelcome }) => {
       setPoints(0);
       setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take the first 10 questions for the quiz
       setScore(0);
+      toast.info(`Starting ${selectedCategory} - ${level} Quiz!`, { autoClose: 2000 });
+    } else {
+      toast.warning(`No questions found for ${selectedCategory} - ${level}. Please select another level.`, { autoClose: 3000 });
       setPoints(0);
       setGameEnded(false);
       setSelectedAnswer(null);
@@ -488,15 +484,6 @@ const MainFeature = ({ onBackToWelcome }) => {
   const currentQuestion = getCurrentQuestion();
   const isWrong = selectedAnswer !== null && selectedAnswer !== currentQuestion?.correctAnswer;
 
-  // Category data mapping for dynamic styling and icons
-  const categoryData = useMemo(() => ({
-    Friends: { icon: "Sparkles", color: "bg-friends-primary", themeClass: "friends-theme", points: { easy: 10, medium: 20, hard: 30 } },
-    "Modern Family": { icon: "Home", color: "bg-modernfamily-primary", themeClass: "modernfamily-theme", points: { easy: 10, medium: 20, hard: 30 } },
-    "Harry Potter": { icon: "Star", color: "bg-harrypotter-primary", themeClass: "harrypotter-theme", points: { easy: 10, medium: 20, hard: 30 } },
-  }), []);
-
-  const getCategoryData = () => categoryData[selectedCategory] || {};
-
   const CheckIcon = getIcon('CheckCircle');
   const XIcon = getIcon('XCircle');
   const TrophyIcon = getIcon('Trophy');
@@ -577,9 +564,8 @@ const MainFeature = ({ onBackToWelcome }) => {
           <motion.div
             key="quiz-screen"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          </motion.div> // Corrected closing tag
-          > {/* Corrected closing tag */}
+      animate={{ opacity: 1, y: 0 }} // Corrected animation
+      exit={{ opacity: 0, y: -20 }} // Added exit animation for consistency
             className={`w-full max-w-2xl card ${getCategoryData().themeClass}`}
           >
             <div className="flex justify-between items-center mb-4 text-surface-600 dark:text-surface-300 font-semibold">

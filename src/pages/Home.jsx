@@ -4,7 +4,7 @@ import MainFeature from '../components/MainFeature';
 import { toast } from 'react-toastify';
 import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence
 
-const Home = ({ darkMode, toggleDarkMode }) => {
+const Home = ({ darkMode, toggleDarkMode }) => { // Added props
   const [showWelcome, setShowWelcome] = useState(true); // State to control showing the initial welcome screen
   const MoonIcon = getIcon('moon');
   const SunIcon = getIcon('sun');
@@ -55,52 +55,51 @@ const Home = ({ darkMode, toggleDarkMode }) => {
           // --- Initial Welcome Screen ---
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
+              <li className="flex items-start">
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-comic font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              Test Your Fandom Knowledge!
+              <li className="flex items-start">
             </h2>
             <p className="text-lg sm:text-xl mb-6 text-surface-600 dark:text-surface-300 font-handwritten">
               Challenge yourself with trivia about Friends, Modern Family, and Harry Potter
-            </p>
+              <li className="flex items-start">
             
             <motion.div
               className="max-w-md mx-auto bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm rounded-2xl shadow-soft p-6 mb-10 flex justify-center items-center"
-            >
+              <li className="flex items-start">
               <span className="text-4xl">🎯</span>
             </motion.div>
             
-              <h3 className="text-xl font-semibold mb-2">How to Play</h3>
- <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
- <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
-                  <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
-                </li>
-               <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
-                  <span>Select a difficulty level (Easy, Medium, or Hard)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
-                  <span>Answer questions and get instant feedback</span>
-                </li>
- <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
-                  <span>See your final score and try to beat it!</span>
-                </li>
-              </ul>
+            </ul>
 
- <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
- Choose your fandom to begin:
- </p>
-            {/* Moved the category buttons here from below */}
-
-            <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
-                { name: "Friends", emoji: "☕" },
-                { name: "Modern Family", emoji: "🏠" },
             {/* Button to start the quiz flow (which now begins with category selection in MainFeature) */}
+            <motion.button
+              onClick={() => setShowWelcome(false)}
+              className="col-span-full btn btn-primary text-lg md:text-xl py-4 rounded-xl font-comic tracking-wide mt-6"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >Start Quiz!
+              </ul>
+          </motion.div>
+        ) : (
+          // --- Main Quiz Flow (handles Category, Level, Quiz, Results) ---
+          <MainFeature onBackToWelcome={() => setShowWelcome(true)} /> {/* Pass a function to go back to welcome */}
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="relative z-10 py-6 text-center text-surface-600 dark:text-surface-300 text-sm">
+        <div className="container mx-auto px-4">
+          Made with ❤️ by your Fandom Friends
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
               ].map((category) => (
               <motion.button
                 onClick={() => setShowWelcome(false)}
