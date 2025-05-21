@@ -36,7 +36,7 @@ function App() {
     <>
       <div className="app min-h-screen">
         <Routes>
-          <Route path="/" element={<Home darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
+          <Route path="/" element={<Home darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} /> {/* Home now handles category selection */}
           <Route path="*" element={<NotFound darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
         </Routes>
       </div>
