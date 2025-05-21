@@ -1,9 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toast } from 'react-toastify';
-import { useCallback } from 'react';
-import { getIcon } from '../utils/iconUtils';
+        id: 50, // Modern Family Question 50
 
 // Quiz data by category
 const quizData = {
@@ -166,25 +162,19 @@ const quizData = {
         correctAnswer: "Ross",
         difficulty: "medium",
         points: 20
-        id: 20,
-        question: "What does Phoebe legally change her name to after she gets married?",
-        options: ["Phoebe Buffay-Hannigan", "Princess Consuela Banana-Hammock", "Phoebe Hannigan", "Phoebe Princess Consuela"],
+      },      {
+        id: 20, // Friends Question 20
         correctAnswer: "Princess Consuela Banana-Hammock",
         difficulty: "hard",
         correctAnswer: "Princess Consuela Banana-Hammock",
       },
-      {
-      },
-      {
-        options: ["A pin", "A bracelet", "A necklace", "Earrings"],
+        points: 30,
         correctAnswer: "A pin",
         difficulty: "hard",
         correctAnswer: "A pin",
       },
       {
-      },
-      {
-        id: 22,
+        id: 22, // Friends Question 22
         question: "What is Joey's favorite food?",
         options: ["Pizza", "Sandwiches", "Pasta", "Meatball subs"],
         correctAnswer: "Sandwiches",
@@ -195,7 +185,7 @@ const quizData = {
         id: 23,
         question: "Which character has a brother named Frank Jr.?",
         options: ["Monica", "Rachel", "Phoebe", "Joey"],
-        correctAnswer: "Phoebe",
+        id: 23, // Friends Question 23
         difficulty: "medium",
         points: 20
       },
@@ -207,7 +197,7 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
-      {
+        id: 24, // Friends Question 24
         id: 25,
         question: "What subject does Ross teach?",
         options: ["Archaeology", "Paleontology", "Geology", "Anthropology"],
@@ -218,7 +208,7 @@ const quizData = {
       {
         id: 26,
         question: "What is the name of the character Phoebe made up to dump a guy?",
-        options: ["Regina Falange", "Ursula Buffay", "Phoebe Abbott", "Princess Consuela"],
+        id: 25, // Friends Question 25
         correctAnswer: "Regina Falange",
         difficulty: "hard",
         points: 30
@@ -229,7 +219,7 @@ const quizData = {
         options: ["Be Your Own Person", "Be Your Own Windkeeper", "Finding Your Inner Self", "Knowing Your Worth"],
         correctAnswer: "Be Your Own Windkeeper",
         difficulty: "hard",
-        points: 30
+        id: 26, // Friends Question 26
       },
       {
         id: 28,
@@ -240,7 +230,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 29,
+        id: 27, // Friends Question 27
         question: "On which soap opera did Joey get his big break?",
         options: ["General Hospital", "Days of Our Lives", "As the World Turns", "The Bold and the Beautiful"],
         correctAnswer: "Days of Our Lives",
@@ -251,7 +241,7 @@ const quizData = {
         id: 30,
         question: "What is the name of Rachel's embarrassing high school nickname?",
         options: ["Big Nose", "Craney", "Spotty", "Big Teeth"],
-        correctAnswer: "Big Nose",
+        id: 28, // Friends Question 28
         difficulty: "hard",
         points: 30
       },
@@ -262,7 +252,7 @@ const quizData = {
         correctAnswer: "Joey",
         difficulty: "medium",
         points: 20
-      },
+        id: 29, // Friends Question 29
       {
         id: 32,
         question: "What song does Ross's monkey Marcel keep playing on repeat?",
@@ -273,7 +263,7 @@ const quizData = {
       },
       {
         id: 33,
-        question: "What is Richard's profession?",
+        id: 30, // Friends Question 30
         options: ["Doctor", "Dentist", "Optometrist", "Ophthalmologist"],
         correctAnswer: "Ophthalmologist",
         difficulty: "medium",
@@ -284,7 +274,7 @@ const quizData = {
         question: "What is Joey's acting catchphrase?",
         options: ["How YOU doin'?", "Smell the fart acting", "It's all in the eyes", "The camera loves me"],
         correctAnswer: "Smell the fart acting",
-        difficulty: "hard",
+        id: 31, // Friends Question 31
         points: 30
       },
       {
@@ -295,7 +285,7 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
-      {
+        id: 32, // Friends Question 32
         id: 36,
         question: "What is the name of Janice's first husband?",
         options: ["Gary", "Gary Litman", "Gary Hosenstein", "Gary Newman"],
@@ -306,7 +296,7 @@ const quizData = {
       {
         id: 37,
         question: "What nickname did Monica's father give her when she was younger?",
-        options: ["Little Harmonica", "Big Fat Goalie", "Mon", "Little One"],
+        id: 33, // Friends Question 33
         correctAnswer: "Little Harmonica",
         difficulty: "hard",
         points: 30
@@ -317,7 +307,7 @@ const quizData = {
         options: ["Insomnia Cafe", "Manhattan Brew", "Daily Grind", "It was always Central Perk"],
         correctAnswer: "It was always Central Perk",
         difficulty: "hard",
-        points: 30
+        id: 34, // Friends Question 34
       },
       {
         id: 39,
@@ -328,7 +318,7 @@ const quizData = {
         points: 10
       },
       {  
-        id: 40,
+        id: 35, // Friends Question 35
         question: "What was Phoebe's profession before becoming a masseuse?",
         options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
         correctAnswer: "Telemarketer",
@@ -339,7 +329,7 @@ const quizData = {
         id: 41,
         question: "What was Joey's fake stage name when he was trying to be younger?",
         options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
-        correctAnswer: "Joseph Stalin",
+        id: 36, // Friends Question 36
         difficulty: "hard",
         points: 30
       },
@@ -350,7 +340,7 @@ const quizData = {
         correctAnswer: "Yemen",
         difficulty: "hard",
         points: 30
-      },
+        id: 37, // Friends Question 37
       {
         id: 43,
         question: "What caused the fire in Phoebe and Rachel's apartment?",
@@ -361,7 +351,7 @@ const quizData = {
       },
       {
         id: 44,
-        question: "What was the profession of Rachel's assistant Tag?",
+        id: 38, // Friends Question 38
         options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
         correctAnswer: "There was no previous profession mentioned",
         difficulty: "hard",
@@ -372,7 +362,7 @@ const quizData = {
         question: "What was the job Joey had in a department store?",
         options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
         correctAnswer: "Cologne sprayer",
-        difficulty: "medium",
+        id: 39, // Friends Question 39
         points: 20
       },
       {
@@ -383,7 +373,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
-      {
+        id: 40, // Friends Question 40
         id: 47,
         question: "What profession did Rachel's father want her to pursue?",
         options: ["Doctor", "Lawyer", "Dentist", "Businesswoman"],
@@ -394,7 +384,7 @@ const quizData = {
       {
         id: 48,
         question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
-        options: ["LOVE", "VEGAS", "LOSER", "ROSS"],
+        id: 41, // Friends Question 41
         correctAnswer: "ROSS",
         difficulty: "hard",
         points: 30
@@ -405,7 +395,7 @@ const quizData = {
         options: ["Katie", "Kathy", "Kaley", "Kara"],
         correctAnswer: "Katie",
         difficulty: "hard",
-        points: 30
+        id: 42, // Friends Question 42
       },
       {
         id: 50,
@@ -416,7 +406,7 @@ const quizData = {
         points: 20
         id: 22,
         question: "What is Joey's favorite food?",
-        options: ["Pizza", "Sandwiches", "Pasta", "Meatball subs"],
+        id: 43, // Friends Question 43
         correctAnswer: "Sandwiches",
         difficulty: "easy",
         points: 10
@@ -427,7 +417,7 @@ const quizData = {
         correctAnswer: "Phoebe",
         difficulty: "medium",
         points: 20
-        options: ["Real Estate Agent", "Insurance Salesman", "Banker", "Teacher"],
+        id: 44, // Friends Question 44
       },
       {
         id: 24,
@@ -438,7 +428,7 @@ const quizData = {
         options: ["Colombia", "Mexico", "Venezuela", "Argentina"],
         correctAnswer: "Colombia",
       {
-        id: 25,
+        id: 45, // Friends Question 45
         question: "What subject does Ross teach?",
         options: ["Archaeology", "Paleontology", "Geology", "Anthropology"],
         correctAnswer: "Paleontology",
@@ -449,7 +439,7 @@ const quizData = {
         id: 26,
         question: "What is the name of the character Phoebe made up to dump a guy?",
         options: ["Regina Falange", "Ursula Buffay", "Phoebe Abbott", "Princess Consuela"],
-        correctAnswer: "Regina Falange",
+        id: 46, // Friends Question 46
         difficulty: "hard",
         points: 30
       },
@@ -460,7 +450,7 @@ const quizData = {
         correctAnswer: "Be Your Own Windkeeper",
         difficulty: "hard",
         points: 30
-      },
+        id: 47, // Friends Question 47
       {
         id: 28,
         question: "What is Monica's biggest strength according to her job interview?",
@@ -471,7 +461,7 @@ const quizData = {
       },
       {
         id: 29,
-        question: "On which soap opera did Joey get his big break?",
+        id: 48, // Friends Question 48
         options: ["General Hospital", "Days of Our Lives", "As the World Turns", "The Bold and the Beautiful"],
         correctAnswer: "Days of Our Lives",
         difficulty: "easy",
@@ -482,7 +472,7 @@ const quizData = {
         question: "What is the name of Rachel's embarrassing high school nickname?",
         options: ["Big Nose", "Craney", "Spotty", "Big Teeth"],
         correctAnswer: "Big Nose",
-        difficulty: "hard",
+        id: 49, // Friends Question 49
         points: 30
       },
       {
@@ -493,7 +483,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
-      {
+        id: 50, // Friends Question 50
         id: 32,
         question: "What song does Ross's monkey Marcel keep playing on repeat?",
         options: ["With or Without You", "In the Jungle", "The Lion Sleeps Tonight", "Don't Stand So Close to Me"],
@@ -504,40 +494,7 @@ const quizData = {
       {
         id: 33,
         question: "What is Richard's profession?",
-        options: ["Doctor", "Dentist", "Optometrist", "Ophthalmologist"],
-        correctAnswer: "Ophthalmologist",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 34,
-        question: "What is Joey's acting catchphrase?",
-        options: ["How YOU doin'?", "Smell the fart acting", "It's all in the eyes", "The camera loves me"],
-        correctAnswer: "Smell the fart acting",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 35,
-        question: "What does Ross dress up as for Halloween to scare Chandler?",
-        options: ["Vampire", "Zombie", "Spud-nik", "Holiday Armadillo"],
-        correctAnswer: "Spud-nik",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 36,
-        question: "What is the name of Janice's first husband?",
-        options: ["Gary", "Gary Litman", "Gary Hosenstein", "Gary Newman"],
-        correctAnswer: "Gary Litman",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 37,
-        question: "What nickname did Monica's father give her when she was younger?",
-        options: ["Little Harmonica", "Big Fat Goalie", "Mon", "Little One"],
-        correctAnswer: "Little Harmonica",
+        id: 26, // Friends Question 26 (Duplicate - Removing)
         difficulty: "hard",
         points: 30
       },
@@ -545,7 +502,7 @@ const quizData = {
         id: 38,
         question: "What was the name of the coffee shop before it was Central Perk?",
         options: ["Insomnia Cafe", "Manhattan Brew", "Daily Grind", "It was always Central Perk"],
-        correctAnswer: "It was always Central Perk",
+        id: 27, // Friends Question 27 (Duplicate - Removing)
         difficulty: "hard",
         points: 30
       },
@@ -556,7 +513,7 @@ const quizData = {
         correctAnswer: "Ben",
         difficulty: "easy",
         points: 10
-      },
+        id: 28, // Friends Question 28 (Duplicate - Removing)
       {  
         id: 40,
         question: "What was Phoebe's profession before becoming a masseuse?",
@@ -567,7 +524,7 @@ const quizData = {
       },
       {
         id: 41,
-        question: "What was Joey's fake stage name when he was trying to be younger?",
+        id: 29, // Friends Question 29 (Duplicate - Removing)
         options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
         correctAnswer: "Joseph Stalin",
         difficulty: "hard",
@@ -578,7 +535,7 @@ const quizData = {
         question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
         options: ["Mexico", "Russia", "Yemen", "Canada"],
         correctAnswer: "Yemen",
-        difficulty: "hard",
+        id: 30, // Friends Question 30 (Duplicate - Removing)
         points: 30
       },
       {
@@ -589,7 +546,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
-      {
+        id: 31, // Friends Question 31 (Duplicate - Removing)
         id: 44,
         question: "What was the profession of Rachel's assistant Tag?",
         options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
@@ -600,7 +557,7 @@ const quizData = {
       {
         id: 45,
         question: "What was the job Joey had in a department store?",
-        options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
+        id: 32, // Friends Question 32 (Duplicate - Removing)
         correctAnswer: "Cologne sprayer",
         difficulty: "medium",
         points: 20
@@ -611,7 +568,7 @@ const quizData = {
         options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
         correctAnswer: "Books she wrote",
         difficulty: "medium",
-        points: 20
+        id: 33, // Friends Question 33 (Duplicate - Removing)
       },
       {
         id: 47,
@@ -622,7 +579,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 48,
+        id: 34, // Friends Question 34 (Duplicate - Removing)
         question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
         options: ["LOVE", "VEGAS", "LOSER", "ROSS"],
         correctAnswer: "ROSS",
@@ -633,7 +590,7 @@ const quizData = {
         id: 49,
         question: "What is the name of the girl Joey dates who keeps punching him?",
         options: ["Katie", "Kathy", "Kaley", "Kara"],
-        correctAnswer: "Katie",
+        id: 35, // Friends Question 35 (Duplicate - Removing)
         difficulty: "hard",
         points: 30
       },
@@ -644,7 +601,7 @@ const quizData = {
         correctAnswer: "Stockbroker",
         difficulty: "medium",
         points: 20
-      }
+        id: 36, // Friends Question 36 (Duplicate - Removing)
     ]
   },
   modernfamily: {
@@ -655,7 +612,7 @@ const quizData = {
     textColor: "text-modernfamily-primary",
     borderColor: "border-modernfamily-primary",
     questions: [
-      {
+        id: 37, // Friends Question 37 (Duplicate - Removing)
         id: 1,
         question: "What is the profession of Phil Dunphy?",
         difficulty: "hard",
@@ -666,7 +623,7 @@ const quizData = {
       {
         id: 2,
         question: "In which country was Gloria born?",
-        difficulty: "hard",
+        id: 38, // Friends Question 38 (Duplicate - Removing)
         points: 30
         difficulty: "easy",
         points: 10
@@ -677,7 +634,7 @@ const quizData = {
         options: ["Restaurants", "Car Dealerships", "Closets", "Real Estate"],
         correctAnswer: "Closets",
         difficulty: "easy",
-        points: 10
+        id: 39, // Friends Question 39 (Duplicate - Removing)
       },
       {
         id: 4,
@@ -688,7 +645,7 @@ const quizData = {
         points: 10
       },
       {
-        id: 5,
+        id: 40, // Friends Question 40 (Duplicate - Removing)
         question: "What is Manny's full first name?",
         options: ["Manuel", "Manfred", "Manuelo", "Manolo"],
         correctAnswer: "Manuel",
@@ -699,7 +656,7 @@ const quizData = {
         id: 6,
         question: "Which university did Haley get accepted to, but then got kicked out of?",
         options: ["UCLA", "USC", "Stanford", "Berkeley"],
-        correctAnswer: "UCLA",
+        id: 41, // Friends Question 41 (Duplicate - Removing)
         difficulty: "medium",
         points: 20
       },
@@ -710,7 +667,7 @@ const quizData = {
         correctAnswer: "Stella",
         difficulty: "easy",
         points: 10
-      },
+        id: 42, // Friends Question 42 (Duplicate - Removing)
       {
         id: 8,
         question: "What instrument does Luke play?",
@@ -721,7 +678,7 @@ const quizData = {
       },
       {
         id: 9,
-        question: "What is Claire's maiden name?",
+        id: 43, // Friends Question 43 (Duplicate - Removing)
         options: ["Pritchett", "Tucker", "Johnson", "Delgado"],
         correctAnswer: "Pritchett",
         difficulty: "easy",
@@ -732,7 +689,7 @@ const quizData = {
         question: "What was Cameron's job before becoming a teacher?",
         options: ["Clown", "Football Coach", "Chef", "Music Teacher"],
         correctAnswer: "Music Teacher",
-        difficulty: "medium",
+        id: 44, // Friends Question 44 (Duplicate - Removing)
         points: 20
       },
       {
@@ -743,7 +700,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
-      {
+        id: 45, // Friends Question 45 (Duplicate - Removing)
         id: 12,
         question: "What is the name of Cam's clown persona?",
         options: ["Fizbo", "Bozo", "Chuckles", "Giggle"],
@@ -754,7 +711,7 @@ const quizData = {
       {
         id: 13,
         question: "What is the name of Phil's real estate company?",
-        options: ["Dunphy Properties", "Dunphy Real Estate", "Phil's Realty", "Pritchett Realty"],
+        id: 46, // Friends Question 46 (Duplicate - Removing)
         correctAnswer: "Dunphy Real Estate",
         difficulty: "medium",
         points: 20
@@ -765,7 +722,7 @@ const quizData = {
         options: ["Stella and Fulgencio", "Rex and Joe", "Bruno and Manny", "Ralph and Fulgencio"],
         correctAnswer: "Stella and Fulgencio",
         difficulty: "hard",
-        points: 30
+        id: 47, // Friends Question 47 (Duplicate - Removing)
       },
       {
         id: 15,
@@ -776,7 +733,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 16,
+        id: 48, // Friends Question 48 (Duplicate - Removing)
         question: "What is the name of Mitchell and Cameron's cat?",
         options: ["Larry", "Felix", "Whiskers", "There was no cat"],
         correctAnswer: "Larry",
@@ -787,7 +744,7 @@ const quizData = {
         id: 17,
         question: "What college does Alex attend?",
         options: ["Harvard", "Caltech", "Yale", "Princeton"],
-        correctAnswer: "Caltech",
+        id: 49, // Friends Question 49 (Duplicate - Removing)
         difficulty: "medium",
         points: 20
       },
@@ -798,7 +755,7 @@ const quizData = {
         correctAnswer: "Yellow",
         difficulty: "hard",
         points: 30
-      },
+        id: 50, // Friends Question 50 (Duplicate - Removing)
       {
         id: 19,
         question: "What is the name of Gloria's ex-husband?",
@@ -810,10 +767,11 @@ const quizData = {
       {
         id: 20,
         question: "From which state did Cameron come?",
-        options: ["Missouri", "Kansas", "Oklahoma", "Iowa"],
+  modernfamily: { // Modern Family Category
         correctAnswer: "Missouri",
         difficulty: "medium",
-        points: 20
+    themeClass: "modernfamily-theme", // Added missing theme class
+    // difficulty: "hard", // Removed misplaced difficulty
       },
       {
         id: 21,
@@ -822,18 +780,13 @@ const quizData = {
         correctAnswer: "Lucas",
         difficulty: "hard",
         points: 30
-      },
+        options: ["Doctor", "Lawyer", "Real Estate Agent", "Teacher"], // Added options
       {
         id: 22,
         question: "What did Phil buy Jay for Christmas that he doesn't like?",
         options: ["A TV", "A car", "A robe", "A watch"],
         correctAnswer: "A robe",
         difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 23,
-        question: "What does Gloria call her grandmother?",
         options: ["Abuela", "Mamacita", "Nana", "Pilar"],
         correctAnswer: "Pilar",
         difficulty: "hard",
@@ -844,11 +797,7 @@ const quizData = {
         question: "What is Mitchell's middle name?",
         options: ["Vincent", "Alan", "Scott", "Andrew"],
         correctAnswer: "Vincent",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 25,
+        id: 4, // Modern Family Question 4
         question: "What causes Cameron to freak out in the grocery store?",
         options: ["Spilled milk", "A spider", "Someone making fun of Lily", "Someone eating grapes without paying"],
         correctAnswer: "Someone eating grapes without paying",
@@ -859,11 +808,7 @@ const quizData = {
         id: 26,
         question: "What does Phil call his real estate work car?",
         options: ["Philippemobile", "The Property Portal", "The Dunphy Mobile", "The Real Estate Express"],
-        correctAnswer: "The Real Estate Express",
-        difficulty: "hard",
-        points: 30
-      },
-      {
+        id: 6, // Modern Family Question 6
         id: 27,
         question: "What is the title of Phil's book?",
         options: ["Phil's-osophy", "Dunphy's Thoughts", "Phil's Way", "The Dunphy Files"],
@@ -874,11 +819,7 @@ const quizData = {
       {
         id: 28,
         question: "What animal did Cameron grow up raising on his farm?",
-        options: ["Pigs", "Cows", "Chickens", "Horses"],
-        correctAnswer: "Pigs",
-        difficulty: "medium",
-        points: 20
-      },
+        id: 8, // Modern Family Question 8
       {
         id: 29,
         question: "What is the name of Haley's fashion blog?",
@@ -889,11 +830,7 @@ const quizData = {
       },
       {
         id: 30,
-        question: "What is Jay's favorite holiday?",
-        options: ["Christmas", "Thanksgiving", "4th of July", "New Year's"],
-        correctAnswer: "4th of July",
-        difficulty: "hard",
-        points: 30
+        id: 10, // Modern Family Question 10
       },
       {
         id: 31,
@@ -904,11 +841,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 32,
-        question: "What is Phil's father's name?",
-        options: ["Frank", "Fred", "Phillip Sr.", "Jim"],
-        correctAnswer: "Frank",
-        difficulty: "medium",
+        id: 12, // Modern Family Question 12
         points: 20
       },
       {
@@ -919,11 +852,7 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
-      {
-        id: 34,
-        question: "What does Claire organize every Halloween?",
-        options: ["A haunted house", "A costume contest", "Trick-or-treating", "A scary movie night"],
-        correctAnswer: "A haunted house",
+        id: 14, // Modern Family Question 14
         difficulty: "medium",
         points: 20
       },
@@ -934,11 +863,7 @@ const quizData = {
         correctAnswer: "Pleger & Babcock",
         difficulty: "hard",
         points: 30
-      },
-      {
-        id: 36,
-        question: "What invention did Phil create?",
-        options: ["The Dunphy Double", "The Sock Roller", "Sock 'Em Boppers", "The Shoe-Shine Shampoo"],
+        id: 16, // Modern Family Question 16
         correctAnswer: "The Sock Roller",
         difficulty: "hard",
         points: 30
@@ -949,11 +874,7 @@ const quizData = {
         options: ["The Longs", "The Johnsons", "The Durants", "The Pattersons"],
         correctAnswer: "The Durants",
         difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 38,
-        question: "What country does Gloria confuse with Switzerland?",
+        id: 18, // Modern Family Question 18
         options: ["Sweden", "Belgium", "Austria", "Denmark"],
         correctAnswer: "Sweden",
         difficulty: "hard",
@@ -964,11 +885,7 @@ const quizData = {
         question: "What instrument did Manny play when he was younger?",
         options: ["Piano", "Violin", "Guitar", "Accordion"],
         correctAnswer: "Accordion",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 40,
+        id: 20, // Modern Family Question 20
         question: "What is Lily's middle name?",
         options: ["Mai", "Ling", "Tucker", "Elizabeth"],
         correctAnswer: "Tucker",
@@ -979,11 +896,7 @@ const quizData = {
         id: 41,
         question: "What is Gloria's mother's name?",
         options: ["Pilar", "Sofía", "Maria", "Dora"],
-        correctAnswer: "Pilar",
-        difficulty: "hard",
-        points: 30
-      },
-      {
+        id: 22, // Modern Family Question 22
         id: 42,
         question: "What color is Jay and Gloria's front door?",
         options: ["Red", "Blue", "Green", "Black"],
@@ -994,11 +907,7 @@ const quizData = {
       {
         id: 43,
         question: "What is Phil allergic to?",
-        options: ["Cats", "Bees", "Peanuts", "Cheese"],
-        correctAnswer: "Bees",
-        difficulty: "medium",
-        points: 20
-      },
+        id: 24, // Modern Family Question 24
       {
         id: 44,
         question: "What is the name of Claire's company?",
@@ -1009,11 +918,7 @@ const quizData = {
       },
       {
         id: 45,
-        question: "What university did Claire drop out of?",
-        options: ["UCLA", "UC Berkeley", "USC", "Stanford"],
-        correctAnswer: "UCLA",
-        difficulty: "hard",
-        points: 30
+        id: 26, // Modern Family Question 26
       },
       {
         id: 46,
@@ -1024,11 +929,7 @@ const quizData = {
         points: 30
       },
       {
-        id: 47,
-        question: "What is the name of Haley's boyfriend who is also a magician?",
-        options: ["Phil", "Andy", "Dylan", "Rainer"],
-        correctAnswer: "Rainer",
-        difficulty: "hard",
+        id: 28, // Modern Family Question 28
         points: 30
       },
       {
@@ -1039,11 +940,7 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
-      {
-        id: 49,
-        question: "What is the license plate of the Dunphy family car?",
-        options: ["DUNPHY1", "CA4SALE", "LUVWRK", "HOMESALE"],
-        correctAnswer: "CA4SALE",
+        id: 30, // Modern Family Question 30
         difficulty: "hard",
         points: 30
       },
@@ -1054,11 +951,7 @@ const quizData = {
         correctAnswer: "Walt",
         difficulty: "medium",
         points: 20
-      }
-    ]
-  },
-  harrypotter: {
-    name: "Harry Potter",
+        id: 32, // Modern Family Question 32
     icon: "zap",
     themeClass: "harrypotter-theme",
     color: "bg-harrypotter-primary",
@@ -1069,11 +962,7 @@ const quizData = {
         id: 1,
         question: "What is Harry Potter's Patronus?",
         options: ["Stag", "Doe", "Wolf", "Otter"],
-        correctAnswer: "Stag",
-        difficulty: "easy",
-        points: 10
-      },
-      {
+        id: 34, // Modern Family Question 34
         id: 2,
         question: "Which Hogwarts house does Hermione Granger belong to?",
         options: ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"],
@@ -1084,11 +973,7 @@ const quizData = {
       {
         id: 3,
         question: "What is the core of Harry Potter's wand?",
-        options: ["Dragon Heartstring", "Unicorn Hair", "Phoenix Feather", "Veela Hair"],
-        correctAnswer: "Phoenix Feather",
-        difficulty: "medium",
-        points: 20
-      },
+        id: 36, // Modern Family Question 36
       {
         id: 4,
         question: "Who killed Dobby the house-elf?",
@@ -1099,11 +984,7 @@ const quizData = {
       },
       {
         id: 5,
-        question: "What position does Harry Potter play in Quidditch?",
-        options: ["Keeper", "Chaser", "Beater", "Seeker"],
-        correctAnswer: "Seeker",
-        difficulty: "easy",
-        points: 10
+        id: 38, // Modern Family Question 38
       },
       {
         id: 6,
@@ -1129,11 +1010,7 @@ const quizData = {
           "Albus Wulfric Percival Brian Dumbledore",
           "Albus Brian Wulfric Percival Dumbledore",
           "Albus Percival Brian Wulfric Dumbledore"
-        ],
-        correctAnswer: "Albus Percival Wulfric Brian Dumbledore",
-        difficulty: "hard",
-        points: 30
-      },
+        id: 42, // Modern Family Question 42
       {
         id: 9,
         question: "What is the name of Hagrid's pet spider?",
@@ -1144,11 +1021,7 @@ const quizData = {
       },
       {
         id: 10,
-        question: "What memory does Harry use to conjure his Patronus during his O.W.L. exams?",
-        options: [
-          "Winning the Quidditch Cup",
-          "It wasn't specified in the book",
-          "When Gryffindor won the House Cup",
+        id: 44, // Modern Family Question 44
           "When he first rode a broom"
         ],
         correctAnswer: "It wasn't specified in the book",
@@ -1204,7 +1077,7 @@ const quizData = {
         points: 20
       },
       {
-        id: 17,
+    textColor: "text-harrypotter-primary", // Keep textColor
         question: "What is the name of the Weasleys' house?",
         options: ["The Hobbit Hole", "The Burrow", "Shell Cottage", "The Nest"],
         correctAnswer: "The Burrow",
@@ -1604,7 +1477,7 @@ const MainFeature = ({ onBackToWelcome }) => {
     
     // Get 50 questions, or all if fewer than 50
     const selectedQuestions = shuffleArray(allQuestions).slice(0, Math.min(50, allQuestions.length));
-    
+
     setSelectedCategory(category);
     setQuizQuestions(selectedQuestions);
     setCurrentQuestionIndex(0);
@@ -1704,7 +1577,7 @@ const MainFeature = ({ onBackToWelcome }) => {
     // Shuffle questions
     const allQuestions = quizData[selectedCategory].questions;
     const newQuestions = shuffleArray(allQuestions).slice(0, 10);
-    setQuizQuestions(newQuestions);
+    setQuizQuestions(shuffleArray(allQuestions).slice(0, Math.min(50, allQuestions.length))); // Shuffle and re-select 50 or max
   };
   
   // Go back to category selection
