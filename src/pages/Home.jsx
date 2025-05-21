@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { getIcon } from '../utils/iconUtils';
 import MainFeature from '../components/MainFeature';
+import { toast } from 'react-toastify';
 
 const Home = ({ darkMode, toggleDarkMode }) => {
   const [showWelcome, setShowWelcome] = useState(true);
-  
-  const handleStartQuiz = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategorySelect = (categoryName) => {
+    setSelectedCategory(categoryName);
     setShowWelcome(false);
+    toast.success(`Starting ${categoryName} quiz!`, { theme: darkMode ? 'dark' : 'light' });
   };
-  
   const MoonIcon = getIcon('moon');
   const SunIcon = getIcon('sun');
   
@@ -71,15 +74,6 @@ const Home = ({ darkMode, toggleDarkMode }) => {
             
             <motion.div
               className="max-w-md mx-auto bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm rounded-2xl shadow-soft p-6 mb-10"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="flex justify-center mb-4">
-                <motion.div
-                  className="flex items-center justify-center rounded-full w-20 h-20 bg-gradient-to-br from-primary-light to-primary shadow-md"
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ repeat: Infinity, repeatType: "reverse", duration: 2 }}
                 >
                   <span className="text-4xl">🎯</span>
                 </motion.div>
@@ -90,12 +84,12 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                   <span className="mr-2 text-primary">•</span>
                   <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
-                  <span>Answer 10 questions per round</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-primary">•</span>
+              <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
+                Choose your fandom to begin:
+              </p>
+
+              {/* Category buttons moved below instructions */}
+
                   <span>Get instant feedback on your answers</span>
                 </li>
                 <li className="flex items-start">
@@ -106,10 +100,12 @@ const Home = ({ darkMode, toggleDarkMode }) => {
               <button
                 onClick={handleStartQuiz}
                 className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-md hover:shadow-lg transition-shadow"
-              >
+                  className="bg-white/70 dark:bg-surface-800/70 rounded-xl p-4 text-center shadow-md cursor-pointer"
                 Start Quiz Now!
+                  onClick={() => handleCategorySelect(category.name)}
               </button>
             </motion.div>
+                  {/* Category name is displayed here */}
             
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
               {[
@@ -117,7 +113,7 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                 { name: "Modern Family", emoji: "🏠" },
                 { name: "Harry Potter", emoji: "⚡" }
               ].map((category) => (
-                <motion.div
+          )} {/* TODO: Pass selectedCategory={selectedCategory} to MainFeature and use it to load questions */}
                   key={category.name}
                   className="bg-white/70 dark:bg-surface-800/70 rounded-xl p-4 text-center shadow-md"
                   whileHover={{ scale: 1.05 }}
