@@ -25,7 +25,7 @@ const quizData = {
         id: 2,
         question: "What is Joey's catchphrase?",
         options: ["We were on a break!", "How you doin'?", "Could I BE any more...", "Oh my God!"],
-        correctAnswer: "How you doin'?"
+        correctAnswer: "How you doin'?",
         difficulty: "easy",
         points: 10
       },
@@ -325,8 +325,9 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
-      {
-    questions: [ 
+      {  
+        id: 40,
+        question: "What was Phoebe's profession before becoming a masseuse?",
       },
       {
         correctAnswer: "Real Estate Agent",
@@ -415,6 +416,7 @@ const quizData = {
         correctAnswer: "Colombia",
         difficulty: "easy",
         points: 10
+      },
         id: 51,
         question: "What's the name of the woman who gives birth to the triplets that Phoebe carries as a surrogate?",
         options: ["Alice", "Alicia", "Allison", "Anne"],
@@ -425,13 +427,15 @@ const quizData = {
     ]
   },
   modernfamily: {
-        correctAnswer: "Closets",
-        difficulty: "easy",
-        points: 10
+    name: "Modern Family",
     icon: "home",
     themeClass: "modernfamily-theme",
     color: "bg-modernfamily-primary",
     textColor: "text-modernfamily-primary",
+    borderColor: "border-modernfamily-primary",
+    questions: [
+      {
+        id: 1,
     borderColor: "border-modernfamily-primary",
         correctAnswer: "Lily",
         difficulty: "easy",
@@ -440,63 +444,113 @@ const quizData = {
         id: 1,
         question: "What is the profession of Phil Dunphy?",
         options: ["Lawyer", "Real Estate Agent", "Engineer", "Teacher"],
-        correctAnswer: "Real Estate Agent"
+        correctAnswer: "Real Estate Agent",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 2,
         correctAnswer: "Manuel",
         difficulty: "medium",
         points: 20
-      {
-        id: 2,
         question: "In which country was Gloria born?",
         options: ["Mexico", "Brazil", "Colombia", "Venezuela"],
-        correctAnswer: "Colombia"
+        correctAnswer: "Colombia",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 3,
         correctAnswer: "UCLA",
         difficulty: "medium",
         points: 20
-      {
-        id: 3,
         question: "What is Jay's business?",
         options: ["Restaurants", "Car Dealerships", "Closets", "Real Estate"],
-        correctAnswer: "Closets"
+        correctAnswer: "Closets",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 4,
         correctAnswer: "Stella",
         difficulty: "easy",
         points: 10
-      {
-        id: 4,
         question: "What is the name of Cam and Mitchell's daughter?",
         options: ["Lily", "Lucy", "Daisy", "Rose"],
-        correctAnswer: "Lily"
+        correctAnswer: "Lily",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 5,
         correctAnswer: "Trumpet",
         difficulty: "medium",
         points: 20
-      {
-        id: 5,
         question: "What is Manny's full first name?",
         options: ["Manuel", "Manfred", "Manuelo", "Manolo"],
-        correctAnswer: "Manuel"
+        correctAnswer: "Manuel",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 6,
         correctAnswer: "Pritchett",
         difficulty: "easy",
         points: 10
-      {
-        id: 6,
         question: "Which university did Haley get accepted to, but then got kicked out of?",
         options: ["UCLA", "USC", "Stanford", "Berkeley"],
-        correctAnswer: "UCLA"
+        correctAnswer: "UCLA",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 7,
         correctAnswer: "Music Teacher",
         difficulty: "medium",
         points: 20
-      {
-        id: 7,
         question: "What is the name of the family dog?",
         options: ["Stella", "Bruno", "Rex", "Lola"],
-        correctAnswer: "Stella"
+        correctAnswer: "Stella",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 8,
         correctAnswer: "Gil Thorpe",
         difficulty: "medium",
         points: 20
-      {
-        id: 8,
         question: "What instrument does Luke play?",
         options: ["Guitar", "Piano", "Drums", "Trumpet"],
-        correctAnswer: "Trumpet"
+        correctAnswer: "Trumpet",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 9,
+        question: "What is Claire's maiden name?",
+        options: ["Pritchett", "Tucker", "Johnson", "Delgado"],
+        correctAnswer: "Pritchett",
+        difficulty: "easy",
+        points: 10
+      },
+      {
+        id: 10,
+        question: "What was Cameron's job before becoming a teacher?",
+        options: ["Clown", "Football Coach", "Chef", "Music Teacher"],
+        correctAnswer: "Music Teacher",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 11,
+        question: "What is the name of Phil's real estate rival?",
+        options: ["Gil Thorpe", "Bill Harper", "Ted Johnson", "Rick Stevens"],
+        correctAnswer: "Gil Thorpe",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        id: 12,
         correctAnswer: "Walt",
         difficulty: "medium",
         points: 20
@@ -806,26 +860,6 @@ const quizData = {
         points: 30
       {
         id: 9,
-        question: "What is Claire's maiden name?",
-        options: ["Pritchett", "Tucker", "Johnson", "Delgado"],
-        correctAnswer: "Pritchett"
-      },
-      {
-        id: 10,
-        question: "What was Cameron's job before becoming a teacher?",
-        options: ["Clown", "Football Coach", "Chef", "Music Teacher"],
-        correctAnswer: "Music Teacher"
-      },
-      {
-        id: 11,
-        question: "What is the name of Phil's real estate rival?",
-        options: ["Gil Thorpe", "Bill Harper", "Ted Johnson", "Rick Stevens"],
-        correctAnswer: "Gil Thorpe"
-      },
-      {
-        id: 12,
-        question: "What is the name of the Dunphy's next-door neighbor?",
-        options: ["Walt", "Jerry", "Larry", "Gary"],
         correctAnswer: "Walt"
       }
     ]
@@ -1585,7 +1619,6 @@ const MainFeature = ({ onBackToWelcome }) => {
             transition={{ duration: 0.3 }}
             className={`bg-white/90 dark:bg-surface-800/90 rounded-2xl p-6 md:p-8 shadow-card ${getCategoryData().themeClass}`}
           >
-            className={`bg-white/90 dark:bg-surface-800/90 rounded-2xl p-6 md:p-8 shadow-card ${getCategoryData().themeClass} ${currentRound.isDoublePoints ? 'double-points-bg' : ''} ${currentRound.isSuddenDeath ? 'sudden-death-bg' : ''}`}
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center">
                 <div className={`w-10 h-10 rounded-full ${getCategoryData().color} flex items-center justify-center mr-3`}>
@@ -1779,130 +1812,6 @@ const MainFeature = ({ onBackToWelcome }) => {
               </p>
               <p className="text-xl mt-2">
                 Total Points: <span className="font-bold">{points}</span>
-              </p>
-              <p className="text-surface-600 dark:text-surface-300 mt-2">
-                {score === quizQuestions.length
-                  ? "Perfect! You're a true fan!"
-                  : score >= quizQuestions.length * 0.7
-                  ? "Great job! You really know your stuff!"
-                  : score >= quizQuestions.length * 0.5
-                  ? "Good effort! You know quite a bit!"
-                  : "Keep practicing to improve your score!"}
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <motion.button
-                onClick={restartQuiz}
-                className={`btn py-3 px-6 rounded-xl ${getCategoryData().color} text-white font-semibold`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Play Again
-              </motion.button>
-              
-              <motion.button
-                onClick={goBackToCategories}
-                className="btn py-3 px-6 rounded-xl bg-surface-200 dark:bg-surface-700 text-surface-800 dark:text-surface-100 font-semibold"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Choose Another Category
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-export default MainFeature;
-
-                    >
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center">
-                          <span className={`flex items-center justify-center w-8 h-8 rounded-full mr-3 ${
-                            selectedAnswer === option
-                              ? option === getCurrentQuestion().correctAnswer
-                                ? "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300"
-                                : "bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300"
-                              : "bg-surface-100 dark:bg-surface-600 text-surface-600 dark:text-surface-300"
-                          }`}>
-                            {selectedAnswer === option ? (
-                              option === getCurrentQuestion().correctAnswer ? (
-                                <CheckIcon className="h-5 w-5" />
-                              ) : (
-                                <motion.div
-                                  animate={isWrong ? {
-                                    rotate: [-5, 5, -5, 5, -5, 5, -5, 5, 0],
-                                    transition: {
-                                      duration: 0.5,
-                                      ease: "easeInOut"
-                                    }
-                                  } : {}}
-                                  ><XIcon className="h-5 w-5" />
-                                </motion.div>
-                              )
-                            ) : (
-                              String.fromCharCode(65 + index) // A, B, C, D
-                            )}
-                          </span>
-                          <span>{option}</span>
-                        </div>
-                        
-                        {/* Check/X icon for selected answer */}
-                        {selectedAnswer === option && (
-                          <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ type: "spring", stiffness: 500, damping: 15 }}
-                          >
-                            {option === getCurrentQuestion().correctAnswer ? (
-                              <CheckIcon className="h-6 w-6 text-green-500" />
-                            ) : (
-                              <XIcon className="h-6 w-6 text-red-500" />
-                            )}
-                          </motion.span>
-                        )}
-                      </div>
-                    </motion.div>
-                   ))}
-                </div>
-                
-                {/* Score Display */}
-                <div className="mt-6 text-center">
-                  <p className="text-surface-600 dark:text-surface-300">
-                    Current Score: <span className="font-bold">{score}</span>
-                  </p>
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ) : (
-          // End Game Results Screen
-          <motion.div
-            key="results-screen"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className={`bg-white/90 dark:bg-surface-800/90 rounded-2xl p-6 md:p-8 shadow-card text-center ${getCategoryData().themeClass}`}
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1, rotate: [0, 10, 0] }}
-              transition={{ type: "spring", stiffness: 500, damping: 15, delay: 0.2 }}
-              className={`w-20 h-20 mx-auto rounded-full ${getCategoryData().color} flex items-center justify-center mb-6`}
-            >
-              <TrophyIcon className="h-10 w-10 text-white" />
-            </motion.div>
-            
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Quiz Completed!</h2>
-            
-            <div className="mb-8">
-              <p className="text-xl">
-                Your Score: <span className="font-bold">{score}</span> out of {quizQuestions.length}
               </p>
               <p className="text-surface-600 dark:text-surface-300 mt-2">
                 {score === quizQuestions.length
