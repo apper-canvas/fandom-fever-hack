@@ -74,15 +74,19 @@ const Home = ({ darkMode, toggleDarkMode }) => {
             
               <h3 className="text-xl font-semibold mb-2">How to Play</h3>
  <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
-                <li className="flex items-start">
+ <li className="flex items-start">
                   <span className="mr-2 text-primary">•</span>
                   <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
                 </li>
-            <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
                <li className="flex items-start">
-                  <span>Get instant feedback on your answers</span>
+                  <span className="mr-2 text-primary">•</span>
+                  <span>Select a difficulty level (Easy, Medium, or Hard)</span>
                 </li>
                 <li className="flex items-start">
+                  <span className="mr-2 text-primary">•</span>
+                  <span>Answer questions and get instant feedback</span>
+                </li>
+ <li className="flex items-start">
                   <span className="mr-2 text-primary">•</span>
                   <span>See your final score and try to beat it!</span>
                 </li>
@@ -103,18 +107,15 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                 className="col-span-full btn btn-primary text-lg md:text-xl py-4 rounded-xl font-comic tracking-wide"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-            </div> {/* Correct closing tag for the div wrapping the map */}
-          <MainFeature onBackToWelcome={() => setShowWelcome(true)} />
-        )}
-      </main> {/* Closing tag for main */}
-      <footer className="relative z-10 py-6 text-center text-surface-500 text-sm">
-        <div className="container mx-auto">
-          <p>© {new Date().getFullYear()} FandomFever Quiz Game</p>
+              >Start Quiz!
+              </motion.button>
+            </motion.div>
+          </AnimatePresence> {/* Moved closing tag up */}
           // --- Main Quiz Flow (handles Category, Level, Quiz, Results) ---
           <MainFeature onBackToWelcome={() => setShowWelcome(true)} /> {/* Pass a function to go back to welcome */}
       </footer>
     </div>
   );
-};
+          {/* Note: MainFeature is now rendered conditionally in the main section, not here */}
 
 export default Home;

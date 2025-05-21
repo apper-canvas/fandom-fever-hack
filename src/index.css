@@ -1,135 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 /* Import React Toastify CSS */
 @import 'react-toastify/dist/ReactToastify.css';
-
+ 
 @layer base {
-  html {
+ html {
     @apply scroll-smooth;
   }
   
-  body {
+ body {
     @apply font-sans text-surface-800 dark:text-surface-100 bg-surface-50 dark:bg-surface-900 min-h-screen;
   }
   
-  /* Base heading styles */
-  h1, h2, h3, h4, h5, h6 {
+ /* Base heading styles */
+ h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
   }
   
-  /* Fun font styles for titles */
-  .fun-title {
+ /* Fun font styles for titles */
+ .fun-title {
     @apply font-comic tracking-wide;
   }
   
-  /* Fun font styles for content */
-  .fun-text {
+ /* Fun font styles for content */
+ .fun-text {
     @apply font-handwritten;
   }
   
-  /* Quiz question text */
-  .question-text {
+ /* Quiz question text */
+ .question-text {
     @apply font-handwritten text-lg;
   }
   
-  h1 {
+ h1 {
     @apply text-3xl md:text-4xl lg:text-5xl font-comic tracking-wide;
   }
   
-  h2 {
+ h2 {
     @apply text-2xl md:text-3xl lg:text-4xl font-comic;
   }
   
-  h3 {
+ h3 {
     @apply text-xl md:text-2xl lg:text-3xl font-handwritten;
   }
 }
 
 @layer components {
-  .btn {
+ .btn {
     @apply px-4 py-2 rounded-lg transition-all duration-200 font-medium;
   }
   
-  .btn-primary {
+ .btn-primary {
     @apply bg-primary text-white hover:bg-primary-dark;
   }
   
-  .btn-secondary {
+ .btn-secondary {
     @apply bg-secondary text-white hover:bg-secondary-dark;
   }
   
-  .container-custom {
+ .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  .card {
+ .card {
     @apply bg-white dark:bg-surface-800 rounded-2xl shadow-card p-6 /* Removed semicolon from @apply line */;
   } /* Removed semicolon from @apply line */
 }
 
 @layer utilities {
-  .scrollbar-hide {
+ .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 
-  .scrollbar-hide::-webkit-scrollbar {
+ .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 
-  .quiz-transition {
+ .quiz-transition {
     @apply transition-all duration-300 ease-in-out;
   }
 
-  /* Answer feedback animations */
-  @keyframes shake {
+ /* Answer feedback animations */
+ @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
     20%, 40%, 60%, 80% { transform: translateX(5px); }
   }
 
-  @keyframes pulse {
+ @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
   }
 
-  .correct-highlight {
+ .correct-highlight {
     animation: pulse 0.5s ease-in-out;
     box-shadow: 0 0 0 2px rgba(72, 187, 120, 0.5);
     transform-origin: center;
   }
 
-  .wrong-highlight {
+ .wrong-highlight {
     animation: shake 0.5s ease-in-out;
   }
 
-  .pulse-correct {
+ .pulse-correct {
     animation: pulse 2s infinite;
     box-shadow: 0 0 0 2px rgba(72, 187, 120, 0.5);
   }
 
-  .correct-answer {
+ .correct-answer {
     @apply transition-all duration-300;
     transform-origin: center;
   }
 
-  .wrong-answer {
+ .wrong-answer {
     @apply transition-all duration-300;
     transform-origin: center;
   }
 
-  /* Category-specific theme classes */
-  .friends-theme {
+ /* Category-specific theme classes */
+ .friends-theme {
     @apply bg-gradient-to-br from-friends-primary/10 to-friends-primary/30;
   }
 
-  .modernfamily-theme {
+ .modernfamily-theme {
     @apply bg-gradient-to-br from-modernfamily-primary/10 to-modernfamily-primary/30;
   }
 
-  .harrypotter-theme {
+ .harrypotter-theme {
     @apply bg-gradient-to-br from-harrypotter-primary/10 to-harrypotter-primary/30;
   }
 }

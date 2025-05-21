@@ -385,8 +385,7 @@ const MainFeature = ({ onBackToWelcome }) => {
       setCurrentQuestionIndex(0);
       setScore(0);
       setPoints(0);
-      setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take first 10, adjust as needed
-      setCurrentQuestionIndex(0);
+      setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take the first 10 questions for the quiz
       setScore(0);
       setPoints(0);
       setGameEnded(false);
@@ -580,7 +579,7 @@ const MainFeature = ({ onBackToWelcome }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           </motion.div> // Corrected closing tag
-            transition={{ duration: 0.3 }}
+          > {/* Corrected closing tag */}
             className={`w-full max-w-2xl card ${getCategoryData().themeClass}`}
           >
             <div className="flex justify-between items-center mb-4 text-surface-600 dark:text-surface-300 font-semibold">
