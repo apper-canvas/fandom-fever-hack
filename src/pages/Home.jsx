@@ -79,42 +79,24 @@ const Home = ({ darkMode, toggleDarkMode }) => {
             </motion.div>
             
               <h3 className="text-xl font-semibold mb-2">How to Play</h3>
-              <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
+ <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
                 <li className="flex items-start">
                   <span className="mr-2 text-primary">•</span>
                   <span>Choose a category: Friends, Modern Family, or Harry Potter</span>
                 </li>
-                {/* Removed misplaced paragraph */}
-              <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
-                Choose your fandom to begin:
-              </p>
-
-              {/* Category buttons moved below instructions */}
-
+                <li className="flex items-start">
+                  <span className="mr-2 text-primary">•</span>
                   <span>Get instant feedback on your answers</span>
-                </li> {/* This closing li was misplaced */}
-                <li className="flex items-start"> {/* This opening li was misplaced */}
+                </li>
+                <li className="flex items-start">
                   <span className="mr-2 text-primary">•</span>
                   <span>See your final score and try to beat it!</span>
                 </li>
               </ul>
 
-              {/* Correctly placed paragraph */}
-              <button
-                onClick={handleStartQuiz}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-md hover:shadow-lg transition-shadow"
-                Start Quiz Now!
-          )} {/* TODO: Pass selectedCategory={selectedCategory} to MainFeature and use it to load questions */}
-                  key={category.name}
-                  className="bg-white/70 dark:bg-surface-800/70 rounded-xl p-4 text-center shadow-md"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="text-3xl mb-2">{category.emoji}</div>
-                  <div className="font-medium">{category.name}</div>
-                </motion.div>
-              ))}
-            </div>
-              </p> {/* This closing p was misplaced */}
+ <p className="text-center text-surface-700 dark:text-surface-300 font-handwritten text-lg mt-6 mb-4">
+ Choose your fandom to begin:
+ </p>
             {/* Moved the category buttons here from below */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
               {[
@@ -134,9 +116,9 @@ const Home = ({ darkMode, toggleDarkMode }) => {
               ))}
             </div>
           </motion.div> {/* Correct closing tag for the main welcome motion.div */}
-          </motion.div>
-          <MainFeature selectedCategory={selectedCategory} onBackToWelcome={() => setShowWelcome(true)} />
+        ) : (
           <MainFeature onBackToWelcome={() => setShowWelcome(true)} />
+        )}
       </main> {/* Closing tag for main */}
       <footer className="relative z-10 py-6 text-center text-surface-500 text-sm">
         <div className="container mx-auto">
