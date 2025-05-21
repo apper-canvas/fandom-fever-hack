@@ -726,6 +726,3 @@ const MainFeature = ({ onBackToWelcome }) => {
       </AnimatePresence>
     </div>
   );
-};
-
-export default MainFeature;
