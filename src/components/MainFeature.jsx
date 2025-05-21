@@ -1,81 +1,99 @@
 import React from 'react';
-        id: 50, // Modern Family Question 50
-
+        name: "Harry Potter",
+        name: "Harry Potter",
+        name: "Harry Potter",
 // Quiz data by category
 const quizData = {
   friends: {
-    name: "Friends",
     icon: "coffee",
     themeClass: "friends-theme",
     color: "bg-friends-primary",
+        name: "Harry Potter",
     textColor: "text-friends-primary",
     borderColor: "border-friends-primary",
     questions: [ 
       {
+        name: "Friends",
         id: 1,
         question: "What is the name of Ross's second wife?",
         options: ["Emily", "Carol", "Susan", "Janice"],
         correctAnswer: "Emily",
+        name: "Harry Potter",
         difficulty: "easy",
         points: 10
       },
       {
+        name: "Friends",
         id: 2,
         question: "What is Joey's catchphrase?",
         options: ["We were on a break!", "How you doin'?", "Could I BE any more...", "Oh my God!"],
         correctAnswer: "How you doin'?",
+        name: "Harry Potter",
         difficulty: "easy",
         points: 10
       },
       {
+        name: "Friends",
         id: 3,
         question: "What is Chandler's job?",
         options: ["Paleontologist", "Chef", "IT Procurement Manager", "Statistical Analysis and Data Reconfiguration"],
         correctAnswer: "Statistical Analysis and Data Reconfiguration",
+        name: "Harry Potter",
         difficulty: "medium",
         points: 20
       },
       {
+        name: "Friends",
         id: 4,
         question: "Which character says the last line in the series finale?",
         options: ["Ross", "Rachel", "Chandler", "Monica"],
         correctAnswer: "Chandler",
+        name: "Harry Potter",
         difficulty: "medium",
         points: 20
       },
       {
+        name: "Friends",
         id: 5,
         question: "What is the name of Phoebe's twin sister?",
         options: ["Ursula", "Regina", "Valerie", "Cheryl"],
         correctAnswer: "Ursula",
+        name: "Harry Potter",
         difficulty: "easy",
         points: 10
       },
       {
+        name: "Friends",
         id: 6,
         question: "What is the name of Ross and Monica's dog when they were growing up?",
         options: ["Rover", "Chi-Chi", "Marcel", "LaPooh"],
         correctAnswer: "Chi-Chi",
+        name: "Harry Potter",
         difficulty: "medium",
         points: 20
       },
       {
+        name: "Friends",
         id: 7,
         question: "What's the name of the coffee shop where the friends always hang out?",
         options: ["Central Brew", "Coffee Town", "Central Perk", "Daily Grind"],
         correctAnswer: "Central Perk",
+        name: "Harry Potter",
         difficulty: "easy",
         points: 10
       },
       {
+        name: "Friends",
         id: 8,
         question: "What instrument does Phoebe play?",
         options: ["Guitar", "Drums", "Keyboard", "Tambourine"],
         correctAnswer: "Guitar",
+        name: "Harry Potter",
         difficulty: "easy",
         points: 10
       },
       {
+        name: "Friends",
         id: 9,
         question: "How many times did Ross get divorced?",
         options: ["1", "2", "3", "4"],
@@ -84,6 +102,7 @@ const quizData = {
         points: 10
       },
       {
+        name: "Friends",
         id: 10,
         question: "What's the name of Joey's penguin?",
         options: ["Hugsy", "Waddles", "Snowflake", "Chilly"],
@@ -92,6 +111,7 @@ const quizData = {
         points: 20
       },
       {
+        name: "Friends",
         id: 11,
         question: "What is Monica's biggest pet peeve?",
         options: ["Dirty dishes", "Animals", "People touching her hair", "Messy rooms"],
@@ -100,6 +120,7 @@ const quizData = {
         points: 20
       },
       {
+        name: "Friends",
         id: 12,
         question: "What does Rachel make for dessert on Thanksgiving that gets mixed up with a traditional English trifle?",
         options: ["Shepherd's Pie", "Cottage Pie", "Beef Wellington", "Custard Pie"],
@@ -108,6 +129,7 @@ const quizData = {
         points: 20
       },
       {
+        name: "Friends",
         id: 13,
         question: "What is the name of Chandler's TV Guide that's addressed to?",
         options: ["Ms. Chanandler Bong", "Ms. Chanandler Bang", "Mr. Chanandler Bong", "Mrs. Chanandler Bong"],
@@ -115,7 +137,8 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
-      {
+      { // Friends Question 14 (Extracted from messy block)
+        name: "Friends",
         id: 14,
         question: "What's the profession of Rachel's fiancé Barry?",
         options: ["Doctor", "Dentist", "Lawyer", "Orthodontist"],
@@ -125,6 +148,7 @@ const quizData = {
       },
       {
         id: 15,
+        name: "Friends",
         question: "What is Joey's agent's name?",
         options: ["Estelle", "Stella", "Ellen", "Emma"],
         correctAnswer: "Estelle",
@@ -133,6 +157,7 @@ const quizData = {
       },
       {
         id: 16,
+        name: "Friends",
         question: "What did Ross try to teach Rachel in the planetarium on their first date?",
         options: ["About black holes", "How stars are born", "About his dissertation", "How planets rotate"],
         correctAnswer: "About his dissertation",
@@ -141,6 +166,7 @@ const quizData = {
       },
       {
         id: 17,
+        name: "Friends",
         question: "What is the name of Chandler's roommate after Joey moves out?",
         options: ["Eddie", "Russ", "Eric", "Gunther"],
         correctAnswer: "Eddie",
@@ -149,6 +175,7 @@ const quizData = {
       },
       {
         id: 18,
+        name: "Friends",
         question: "What is Chandler afraid of?",
         options: ["Spiders", "Commitment", "Dogs", "Public speaking"],
         correctAnswer: "Commitment",
@@ -157,12 +184,14 @@ const quizData = {
       },
       {
         id: 19,
+        name: "Friends",
         question: "Which friend posed nude for a painting?",
         options: ["Ross", "Joey", "Chandler", "Phoebe"],
         correctAnswer: "Ross",
         difficulty: "medium",
         points: 20
-      },      {
+      },
+      { // Friends Question 20 (Extracted from messy block)
         id: 20, // Friends Question 20
         correctAnswer: "Princess Consuela Banana-Hammock",
         difficulty: "hard",
@@ -172,23 +201,24 @@ const quizData = {
         correctAnswer: "A pin",
         difficulty: "hard",
         correctAnswer: "A pin",
+        name: "Friends",
       },
       {
         id: 22, // Friends Question 22
         question: "What is Joey's favorite food?",
-        options: ["Pizza", "Sandwiches", "Pasta", "Meatball subs"],
         correctAnswer: "Sandwiches",
         difficulty: "easy",
         points: 10
       },
+        name: "Friends",
       {
         id: 23,
         question: "Which character has a brother named Frank Jr.?",
         options: ["Monica", "Rachel", "Phoebe", "Joey"],
         id: 23, // Friends Question 23
         difficulty: "medium",
-        points: 20
-      },
+      { // Friends Question 23 (Extracted from messy block)
+        name: "Friends",
       {
         id: 24,
         question: "What was the name of Ross's monkey?",
@@ -196,6 +226,7 @@ const quizData = {
         correctAnswer: "Marcel",
         difficulty: "easy",
         points: 10
+        name: "Friends",
       },
         id: 24, // Friends Question 24
         id: 25,
@@ -204,8 +235,8 @@ const quizData = {
         correctAnswer: "Paleontology",
         difficulty: "easy",
         points: 10
-      },
-      {
+        name: "Friends",
+        id: 25, // Friends Question 25
         id: 26,
         question: "What is the name of the character Phoebe made up to dump a guy?",
         id: 25, // Friends Question 25
@@ -214,8 +245,8 @@ const quizData = {
         points: 30
       },
       {
+        name: "Friends",
         id: 27,
-        question: "What is the name of the self-help book that Rachel and Joey love but Ross hates?",
         options: ["Be Your Own Person", "Be Your Own Windkeeper", "Finding Your Inner Self", "Knowing Your Worth"],
         correctAnswer: "Be Your Own Windkeeper",
         difficulty: "hard",
@@ -223,6 +254,7 @@ const quizData = {
       },
       {
         id: 28,
+        name: "Friends",
         question: "What is Monica's biggest strength according to her job interview?",
         options: ["Cooking", "Competitiveness", "Attention to detail", "Leadership"],
         correctAnswer: "Attention to detail",
@@ -231,6 +263,7 @@ const quizData = {
       },
       {
         id: 27, // Friends Question 27
+        name: "Friends",
         question: "On which soap opera did Joey get his big break?",
         options: ["General Hospital", "Days of Our Lives", "As the World Turns", "The Bold and the Beautiful"],
         correctAnswer: "Days of Our Lives",
@@ -239,8 +272,8 @@ const quizData = {
       },
       {
         id: 30,
+        name: "Friends",
         question: "What is the name of Rachel's embarrassing high school nickname?",
-        options: ["Big Nose", "Craney", "Spotty", "Big Teeth"],
         id: 28, // Friends Question 28
         difficulty: "hard",
         points: 30
@@ -248,8 +281,8 @@ const quizData = {
       {
         id: 31,
         question: "Who marries Monica and Chandler?",
+        name: "Friends",
         options: ["Ross", "Joey", "A random priest", "The minister from the Bing wedding"],
-        correctAnswer: "Joey",
         difficulty: "medium",
         points: 20
         id: 29, // Friends Question 29
@@ -257,6 +290,7 @@ const quizData = {
         id: 32,
         question: "What song does Ross's monkey Marcel keep playing on repeat?",
         options: ["With or Without You", "In the Jungle", "The Lion Sleeps Tonight", "Don't Stand So Close to Me"],
+        name: "Friends",
         correctAnswer: "The Lion Sleeps Tonight",
         difficulty: "hard",
         points: 30
@@ -265,6 +299,7 @@ const quizData = {
         id: 33,
         id: 30, // Friends Question 30
         options: ["Doctor", "Dentist", "Optometrist", "Ophthalmologist"],
+        name: "Friends",
         correctAnswer: "Ophthalmologist",
         difficulty: "medium",
         points: 20
@@ -273,8 +308,8 @@ const quizData = {
         id: 34,
         question: "What is Joey's acting catchphrase?",
         options: ["How YOU doin'?", "Smell the fart acting", "It's all in the eyes", "The camera loves me"],
+        name: "Friends",
         correctAnswer: "Smell the fart acting",
-        id: 31, // Friends Question 31
         points: 30
       },
       {
@@ -283,8 +318,8 @@ const quizData = {
         options: ["Vampire", "Zombie", "Spud-nik", "Holiday Armadillo"],
         correctAnswer: "Spud-nik",
         difficulty: "hard",
+        name: "Friends",
         points: 30
-      },
         id: 32, // Friends Question 32
         id: 36,
         question: "What is the name of Janice's first husband?",
@@ -292,6 +327,7 @@ const quizData = {
         correctAnswer: "Gary Litman",
         difficulty: "hard",
         points: 30
+        name: "Friends",
       },
       {
         id: 37,
@@ -299,8 +335,8 @@ const quizData = {
         id: 33, // Friends Question 33
         correctAnswer: "Little Harmonica",
         difficulty: "hard",
-        points: 30
-      },
+        name: "Friends",
+        id: 36, // Friends Question 36
       {
         id: 38,
         question: "What was the name of the coffee shop before it was Central Perk?",
@@ -309,8 +345,8 @@ const quizData = {
         difficulty: "hard",
         id: 34, // Friends Question 34
       },
+        name: "Friends",
       {
-        id: 39,
         question: "What did Carol and Susan name their son?",
         options: ["Ben", "Mark", "Michael", "Robert"],
         correctAnswer: "Ben",
@@ -318,8 +354,8 @@ const quizData = {
         points: 10
       },
       {  
+        name: "Friends",
         id: 35, // Friends Question 35
-        question: "What was Phoebe's profession before becoming a masseuse?",
         options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
         correctAnswer: "Telemarketer",
         difficulty: "easy",
@@ -327,6 +363,7 @@ const quizData = {
       },
       {
         id: 41,
+        name: "Friends",
         question: "What was Joey's fake stage name when he was trying to be younger?",
         options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
         id: 36, // Friends Question 36
@@ -335,8 +372,8 @@ const quizData = {
       },
       {
         id: 42,
+        name: "Friends",
         question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
-        options: ["Mexico", "Russia", "Yemen", "Canada"],
         correctAnswer: "Yemen",
         difficulty: "hard",
         points: 30
@@ -344,8 +381,8 @@ const quizData = {
       {
         id: 43,
         question: "What caused the fire in Phoebe and Rachel's apartment?",
+        name: "Friends",
         options: ["A hair straightener", "A candle", "The stove", "Rachel's hair curling iron"],
-        correctAnswer: "Rachel's hair curling iron",
         difficulty: "medium",
         points: 20
       },
@@ -353,8 +390,8 @@ const quizData = {
         id: 44,
         id: 38, // Friends Question 38
         options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
+        name: "Friends",
         correctAnswer: "There was no previous profession mentioned",
-        difficulty: "hard",
         points: 30
       },
       {
@@ -363,6 +400,7 @@ const quizData = {
         options: ["Santa Claus", "Gift wrapper", "Cologne sprayer", "Security guard"],
         correctAnswer: "Cologne sprayer",
         id: 39, // Friends Question 39
+        name: "Friends",
         points: 20
       },
       {
@@ -371,8 +409,8 @@ const quizData = {
         options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
         correctAnswer: "Books she wrote",
         difficulty: "medium",
+        name: "Friends",
         points: 20
-      },
         id: 40, // Friends Question 40
         id: 47,
         question: "What profession did Rachel's father want her to pursue?",
@@ -381,8 +419,8 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
+        name: "Friends",
       {
-        id: 48,
         question: "In Las Vegas, what word does Ross draw on Rachel's face while she's sleeping?",
         id: 41, // Friends Question 41
         correctAnswer: "ROSS",
@@ -390,6 +428,7 @@ const quizData = {
         points: 30
       },
       {
+        name: "Friends",
         id: 49,
         question: "What is the name of the girl Joey dates who keeps punching him?",
         options: ["Katie", "Kathy", "Kaley", "Kara"],
@@ -398,7 +437,8 @@ const quizData = {
         id: 42, // Friends Question 42
       },
       {
-        id: 50,
+        name: "Friends",
+        id: 47, // Friends Question 47
         question: "What was the profession of Rachel's imaginary friend?",
         options: ["Astronaut", "Cowboy", "Pilot", "Stockbroker"],
         correctAnswer: "Stockbroker",
@@ -408,8 +448,8 @@ const quizData = {
         question: "What is Joey's favorite food?",
         id: 43, // Friends Question 43
         correctAnswer: "Sandwiches",
+        name: "Friends",
         difficulty: "easy",
-        points: 10
       {
         id: 23,
         question: "Which character has a brother named Frank Jr.?",
@@ -417,8 +457,8 @@ const quizData = {
         correctAnswer: "Phoebe",
         difficulty: "medium",
         points: 20
+        name: "Friends",
         id: 44, // Friends Question 44
-      },
       {
         id: 24,
         question: "What was the name of Ross's monkey?",
@@ -426,144 +466,59 @@ const quizData = {
         correctAnswer: "Marcel",
         difficulty: "easy",
         options: ["Colombia", "Mexico", "Venezuela", "Argentina"],
+        name: "Friends",
         correctAnswer: "Colombia",
       {
         id: 45, // Friends Question 45
         question: "What subject does Ross teach?",
         options: ["Archaeology", "Paleontology", "Geology", "Anthropology"],
-        correctAnswer: "Paleontology",
-        difficulty: "easy",
-        points: 10
-      },
-      {
+      }
+    ]
+  },
+  modernfamily: { // Modern Family Category
         id: 26,
-        question: "What is the name of the character Phoebe made up to dump a guy?",
         options: ["Regina Falange", "Ursula Buffay", "Phoebe Abbott", "Princess Consuela"],
         id: 46, // Friends Question 46
         difficulty: "hard",
         points: 30
+      {
+        name: "Modern Family",
+        id: 1, // Modern Family Question 1
+        id: 27,
+        options: ["Doctor", "Lawyer", "Real Estate Agent", "Teacher"],
+        correctAnswer: "Real Estate Agent",
+        difficulty: "easy",
+        points: 10
       },
       {
-        id: 27,
-        question: "What is the name of the self-help book that Rachel and Joey love but Ross hates?",
-        options: ["Be Your Own Person", "Be Your Own Windkeeper", "Finding Your Inner Self", "Knowing Your Worth"],
-        correctAnswer: "Be Your Own Windkeeper",
-        difficulty: "hard",
-        points: 30
-        id: 47, // Friends Question 47
+        name: "Modern Family",
       {
         id: 28,
-        question: "What is Monica's biggest strength according to her job interview?",
-        options: ["Cooking", "Competitiveness", "Attention to detail", "Leadership"],
+        options: ["Colombia", "Mexico", "Venezuela", "Argentina"],
+        correctAnswer: "Colombia",
         correctAnswer: "Attention to detail",
         difficulty: "medium",
         points: 20
       },
+        name: "Modern Family",
       {
         id: 29,
         id: 48, // Friends Question 48
         options: ["General Hospital", "Days of Our Lives", "As the World Turns", "The Bold and the Beautiful"],
         correctAnswer: "Days of Our Lives",
-        difficulty: "easy",
         points: 10
       },
+      {
+        name: "Modern Family",
       {
         id: 30,
         question: "What is the name of Rachel's embarrassing high school nickname?",
         options: ["Big Nose", "Craney", "Spotty", "Big Teeth"],
         correctAnswer: "Big Nose",
         id: 49, // Friends Question 49
-        points: 30
       },
       {
-        id: 31,
-        question: "Who marries Monica and Chandler?",
-        options: ["Ross", "Joey", "A random priest", "The minister from the Bing wedding"],
-        correctAnswer: "Joey",
-        difficulty: "medium",
-        points: 20
-      },
-        id: 50, // Friends Question 50
-        id: 32,
-        question: "What song does Ross's monkey Marcel keep playing on repeat?",
-        options: ["With or Without You", "In the Jungle", "The Lion Sleeps Tonight", "Don't Stand So Close to Me"],
-        correctAnswer: "The Lion Sleeps Tonight",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 33,
-        question: "What is Richard's profession?",
-        id: 26, // Friends Question 26 (Duplicate - Removing)
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 38,
-        question: "What was the name of the coffee shop before it was Central Perk?",
-        options: ["Insomnia Cafe", "Manhattan Brew", "Daily Grind", "It was always Central Perk"],
-        id: 27, // Friends Question 27 (Duplicate - Removing)
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 39,
-        question: "What did Carol and Susan name their son?",
-        options: ["Ben", "Mark", "Michael", "Robert"],
-        correctAnswer: "Ben",
-        difficulty: "easy",
-        points: 10
-        id: 28, // Friends Question 28 (Duplicate - Removing)
-      {  
-        id: 40,
-        question: "What was Phoebe's profession before becoming a masseuse?",
-        options: ["Real Estate Agent", "Telemarketer", "Waitress", "Teacher"],
-        correctAnswer: "Telemarketer",
-        difficulty: "easy",
-        points: 10
-      },
-      {
-        id: 41,
-        id: 29, // Friends Question 29 (Duplicate - Removing)
-        options: ["Joey Tribiani", "Joseph Stalin", "Joseph Tribbiani Jr.", "Joey Dallas"],
-        correctAnswer: "Joseph Stalin",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 42,
-        question: "Which country does Chandler pretend to move to when he's actually hiding to plan a surprise proposal for Monica?",
-        options: ["Mexico", "Russia", "Yemen", "Canada"],
-        correctAnswer: "Yemen",
-        id: 30, // Friends Question 30 (Duplicate - Removing)
-        points: 30
-      },
-      {
-        id: 43,
-        question: "What caused the fire in Phoebe and Rachel's apartment?",
-        options: ["A hair straightener", "A candle", "The stove", "Rachel's hair curling iron"],
-        correctAnswer: "Rachel's hair curling iron",
-        difficulty: "medium",
-        points: 20
-      },
-        id: 31, // Friends Question 31 (Duplicate - Removing)
-        id: 44,
-        question: "What was the profession of Rachel's assistant Tag?",
-        options: ["There was no previous profession mentioned", "Mail carrier", "Waiter", "Bartender"],
-        correctAnswer: "There was no previous profession mentioned",
-        difficulty: "hard",
-        points: 30
-      },
-      {
-        id: 45,
-        question: "What was the job Joey had in a department store?",
-        id: 32, // Friends Question 32 (Duplicate - Removing)
-        correctAnswer: "Cologne sprayer",
-        difficulty: "medium",
-        points: 20
-      },
-      {
-        id: 46,
+        name: "Modern Family",
         question: "What did Chandler's mother give the group when she visited?",
         options: ["Books she wrote", "Money", "Relationship advice", "Clothes"],
         correctAnswer: "Books she wrote",
@@ -735,31 +690,32 @@ const quizData = {
       {
         id: 48, // Friends Question 48 (Duplicate - Removing)
         question: "What is the name of Mitchell and Cameron's cat?",
-        options: ["Larry", "Felix", "Whiskers", "There was no cat"],
+        name: "Modern Family",
+        id: 17, // Modern Family Question 17
         correctAnswer: "Larry",
         difficulty: "hard",
-        points: 30
+        correctAnswer: "Caltech",
+        difficulty: "medium",
+        points: 20
       },
       {
-        id: 17,
-        question: "What college does Alex attend?",
+        name: "Modern Family",
         options: ["Harvard", "Caltech", "Yale", "Princeton"],
         id: 49, // Friends Question 49 (Duplicate - Removing)
         difficulty: "medium",
         points: 20
       },
       {
-        id: 18,
         question: "What color was Cam and Mitchell's kitchen before they renovated it?",
         options: ["Green", "Yellow", "Blue", "Orange"],
         correctAnswer: "Yellow",
         difficulty: "hard",
         points: 30
         id: 50, // Friends Question 50 (Duplicate - Removing)
+        name: "Modern Family",
       {
         id: 19,
-        question: "What is the name of Gloria's ex-husband?",
-        options: ["Javier", "Roberto", "Jesús", "Carlos"],
+        options: ["Missouri", "Kansas", "Iowa", "Oklahoma"],
         correctAnswer: "Javier",
         difficulty: "medium",
         points: 20
@@ -767,21 +723,26 @@ const quizData = {
       {
         id: 20,
         question: "From which state did Cameron come?",
-  modernfamily: { // Modern Family Category
-        correctAnswer: "Missouri",
-        difficulty: "medium",
-    themeClass: "modernfamily-theme", // Added missing theme class
+        correctAnswer: "Luke", // Corrected answer based on show canon
+        difficulty: "hard",
+        points: 30
     // difficulty: "hard", // Removed misplaced difficulty
       },
       {
         id: 21,
         question: "What was Luke's original name going to be?",
         options: ["Duke", "Lucas", "Liam", "Louis"],
-        correctAnswer: "Lucas",
+        points: 30
+      },
+      { // Modern Family Question 23 (Extracted from messy block)
+        name: "Modern Family",
+        id: 23,
+        question: "What is Gloria's mother's name?",
         difficulty: "hard",
         points: 30
         options: ["Doctor", "Lawyer", "Real Estate Agent", "Teacher"], // Added options
       {
+        name: "Modern Family",
         id: 22,
         question: "What did Phil buy Jay for Christmas that he doesn't like?",
         options: ["A TV", "A car", "A robe", "A watch"],
@@ -795,6 +756,7 @@ const quizData = {
       {
         id: 24,
         question: "What is Mitchell's middle name?",
+        name: "Modern Family",
         options: ["Vincent", "Alan", "Scott", "Andrew"],
         correctAnswer: "Vincent",
         id: 4, // Modern Family Question 4
@@ -802,6 +764,7 @@ const quizData = {
         options: ["Spilled milk", "A spider", "Someone making fun of Lily", "Someone eating grapes without paying"],
         correctAnswer: "Someone eating grapes without paying",
         difficulty: "hard",
+        name: "Modern Family",
         points: 30
       },
       {
@@ -810,8 +773,13 @@ const quizData = {
         options: ["Philippemobile", "The Property Portal", "The Dunphy Mobile", "The Real Estate Express"],
         id: 6, // Modern Family Question 6
         id: 27,
+        name: "Modern Family",
         question: "What is the title of Phil's book?",
-        options: ["Phil's-osophy", "Dunphy's Thoughts", "Phil's Way", "The Dunphy Files"],
+        options: ["Cows", "Pigs", "Chickens", "Sheep"], // Added options
+        correctAnswer: "Pigs",
+        difficulty: "medium", // Adjusted difficulty
+        points: 20 // Adjusted points
+      },
         correctAnswer: "Phil's-osophy",
         difficulty: "medium",
         points: 20
@@ -823,6 +791,14 @@ const quizData = {
       {
         id: 29,
         question: "What is the name of Haley's fashion blog?",
+        name: "Modern Family",
+        options: ["Mitchell", "Claire", "Manny", "Dylan"], // Added options
+        correctAnswer: "Claire", // Corrected answer - Claire is Jay's oldest child
+        difficulty: "hard",
+        points: 30
+      },
+      {
+        name: "Modern Family",
         options: ["Haley's Comet", "Fashion Forward", "Haley's Comments", "Dunphy Designs"],
         correctAnswer: "Haley's Comet",
         difficulty: "hard",
@@ -836,8 +812,13 @@ const quizData = {
         id: 31,
         question: "Which Dunphy child doesn't wear glasses?",
         options: ["Luke", "Alex", "Haley", "They all wear glasses sometimes"],
+        name: "Modern Family",
         correctAnswer: "Haley",
-        difficulty: "medium",
+        question: "What is the name of the song Phil sings to Claire on Valentine's Day?", // Added question
+        options: ["Candlelight", "Claire", "Valentine's Love", "My Girl"], // Added options
+        correctAnswer: "Candlelight",
+        difficulty: "hard", // Adjusted difficulty
+        points: 30
         points: 20
       },
       {
@@ -848,8 +829,15 @@ const quizData = {
         id: 33,
         question: "What is Gloria afraid of?",
         options: ["Spiders", "Snakes", "Clowns", "Puppets"],
+        name: "Modern Family",
         correctAnswer: "Puppets",
         difficulty: "hard",
+        options: ["The Pitch Perfects", "Filharmonic", "The Dunphy Dogs", "Aca-Dunphy"], // Added options
+        correctAnswer: "Filharmonic",
+        difficulty: "hard",
+        points: 30
+      },
+      {
         points: 30
       },
         id: 14, // Modern Family Question 14
@@ -863,8 +851,13 @@ const quizData = {
         correctAnswer: "Pleger & Babcock",
         difficulty: "hard",
         points: 30
+        name: "Modern Family",
         id: 16, // Modern Family Question 16
-        correctAnswer: "The Sock Roller",
+        question: "What invention did Luke try to patent?", // Added question
+        options: ["A pillow with a built-in alarm", "A device to find lost socks", "Self-tying shoelaces", "A robot assistant"], // Added options
+        correctAnswer: "A device to find lost socks",
+        difficulty: "hard", // Adjusted difficulty
+        points: 30
         difficulty: "hard",
         points: 30
       },
@@ -876,15 +869,25 @@ const quizData = {
         difficulty: "hard",
         id: 18, // Modern Family Question 18
         options: ["Sweden", "Belgium", "Austria", "Denmark"],
-        correctAnswer: "Sweden",
-        difficulty: "hard",
+      },
+      {
+        name: "Modern Family",
+        id: 38, // Modern Family Question 18
+        question: "Which country does Haley visit that Phil thinks is made up?", // Added question
+        options: ["Sweden", "Belgium", "Austria", "Denmark"], // Added options based on prompt
+        correctAnswer: "Sweden", // Assuming Sweden from the options is correct
         points: 30
       },
       {
         id: 39,
         question: "What instrument did Manny play when he was younger?",
+        name: "Modern Family",
         options: ["Piano", "Violin", "Guitar", "Accordion"],
         correctAnswer: "Accordion",
+        difficulty: "medium", // Adjusted difficulty
+        points: 20 // Adjusted points
+      },
+      {
         id: 20, // Modern Family Question 20
         question: "What is Lily's middle name?",
         options: ["Mai", "Ling", "Tucker", "Elizabeth"],
@@ -896,8 +899,14 @@ const quizData = {
         id: 41,
         question: "What is Gloria's mother's name?",
         options: ["Pilar", "Sofía", "Maria", "Dora"],
+        name: "Modern Family",
         id: 22, // Modern Family Question 22
         id: 42,
+        options: ["Pilar", "Sofía", "Maria", "Dora"],
+        correctAnswer: "Pilar",
+        difficulty: "hard", // Adjusted difficulty
+        points: 30 // Adjusted points
+      },
         question: "What color is Jay and Gloria's front door?",
         options: ["Red", "Blue", "Green", "Black"],
         correctAnswer: "Red",
@@ -911,8 +920,13 @@ const quizData = {
       {
         id: 44,
         question: "What is the name of Claire's company?",
+        name: "Modern Family",
         options: ["Pritchett's Closets & Blinds", "Pritchett-Tucker Closets", "Pritchett's Closets", "Closet Kingdom"],
-        correctAnswer: "Pritchett's Closets & Blinds",
+        options: ["Cats", "Pineapple", "Bees", "Dust"], // Added options
+        correctAnswer: "Pineapple",
+        difficulty: "hard",
+        points: 30
+      },
         difficulty: "medium",
         points: 20
       },
@@ -923,8 +937,14 @@ const quizData = {
       {
         id: 46,
         question: "Where did Jay propose to Gloria?",
+        name: "Modern Family",
         options: ["A restaurant", "On vacation", "At home", "At a football game"],
-        correctAnswer: "At a football game",
+        question: "What did Phil and Claire buy to make their house 'smart'?", // Added question
+        options: ["A smart fridge", "A voice assistant system", "Smart blinds", "A robot vacuum"], // Added options
+        correctAnswer: "A voice assistant system",
+        difficulty: "hard",
+        points: 30
+      },
         difficulty: "hard",
         points: 30
       },
@@ -936,8 +956,14 @@ const quizData = {
         id: 48,
         question: "What did Cameron do as a child that earned him the nickname 'Calves of Steel'?",
         options: ["Football", "Ballet", "Soccer", "Catching pigs"],
-        correctAnswer: "Catching pigs",
+        name: "Modern Family",
+        id: 47, // Modern Family Question 28
+        question: "What is the name of the character played by Edward Norton in a cameo?", // Added question
+        options: ["Izzy LaFontaine", "Tommy Schmucker", "Gustav", "George"], // Added options
+        correctAnswer: "Izzy LaFontaine",
         difficulty: "hard",
+        points: 30
+      },
         points: 30
       },
         id: 30, // Modern Family Question 30
@@ -950,13 +976,25 @@ const quizData = {
         options: ["Walt", "Bill", "Jerry", "Herb"],
         correctAnswer: "Walt",
         difficulty: "medium",
-        points: 20
-        id: 32, // Modern Family Question 32
-    icon: "zap",
+        name: "Modern Family",
+        id: 49, // Modern Family Question 30
+        question: "What is the name of the school Haley's twins go to?", // Added question
+        options: ["Smart Start", "Little Steps", "Bright Beginnings", "Happy Trails"], // Added options
+        correctAnswer: "Bright Beginnings",
+        difficulty: "hard",
+        points: 30
     themeClass: "harrypotter-theme",
     color: "bg-harrypotter-primary",
     textColor: "text-harrypotter-primary",
     borderColor: "border-harrypotter-primary",
+        name: "Modern Family",
+        options: ["Walt", "Bill", "Jerry", "Herb"], // Added options
+        correctAnswer: "Walt",
+        difficulty: "medium",
+        points: 20
+      },
+      {
+        name: "Modern Family",
     questions: [ 
       {
         id: 1,
@@ -964,7 +1002,7 @@ const quizData = {
         options: ["Stag", "Doe", "Wolf", "Otter"],
         id: 34, // Modern Family Question 34
         id: 2,
-        question: "Which Hogwarts house does Hermione Granger belong to?",
+    themeClass: "harrypotter-theme", // Keep themeClass
         options: ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"],
         correctAnswer: "Gryffindor",
         difficulty: "easy",
@@ -972,15 +1010,19 @@ const quizData = {
       },
       {
         id: 3,
+        name: "Harry Potter",
         question: "What is the core of Harry Potter's wand?",
         id: 36, // Modern Family Question 36
+        correctAnswer: "Stag",
+        difficulty: "easy",
+        points: 10
+      },
       {
-        id: 4,
+      {
+        name: "Harry Potter",
+        id: 2, // Harry Potter Question 2
         question: "Who killed Dobby the house-elf?",
         options: ["Bellatrix Lestrange", "Lucius Malfoy", "Voldemort", "Peter Pettigrew"],
-        correctAnswer: "Bellatrix Lestrange",
-        difficulty: "medium",
-        points: 20
       },
       {
         id: 5,
@@ -989,6 +1031,7 @@ const quizData = {
       {
         id: 6,
         question: "Which of these is NOT a Deathly Hallow?",
+        name: "Harry Potter",
         options: ["Elder Wand", "Invisibility Cloak", "Resurrection Stone", "Time-Turner"],
         correctAnswer: "Time-Turner",
         difficulty: "medium",
@@ -997,6 +1040,7 @@ const quizData = {
       {
         id: 7,
         question: "What is the name of Harry Potter's owl?",
+        name: "Harry Potter",
         options: ["Errol", "Hedwig", "Hermes", "Pigwidgeon"],
         correctAnswer: "Hedwig",
         difficulty: "easy",
@@ -1005,6 +1049,7 @@ const quizData = {
       {
         id: 8,
         question: "What is the full name of Professor Dumbledore?",
+        name: "Harry Potter",
         options: [
           "Albus Percival Wulfric Brian Dumbledore",
           "Albus Wulfric Percival Brian Dumbledore",
@@ -1013,6 +1058,7 @@ const quizData = {
         id: 42, // Modern Family Question 42
       {
         id: 9,
+        name: "Harry Potter",
         question: "What is the name of Hagrid's pet spider?",
         options: ["Aragog", "Mosag", "Norbert", "Fluffy"],
         correctAnswer: "Aragog",
@@ -1021,6 +1067,7 @@ const quizData = {
       },
       {
         id: 10,
+        name: "Harry Potter",
         id: 44, // Modern Family Question 44
           "When he first rode a broom"
         ],
@@ -1028,24 +1075,29 @@ const quizData = {
         difficulty: "hard",
         points: 30
       },
+        correctAnswer: "Albus Percival Wulfric Brian Dumbledore",
+        difficulty: "hard",
+        points: 30
+      },
       {
-        id: 11,
+      { // Harry Potter Question 9
+        name: "Harry Potter",
         question: "What is the name of the wizard prison?",
         options: ["Nurmengard", "Azkaban", "Gringotts", "Durmstrang"],
         correctAnswer: "Azkaban",
-        difficulty: "easy",
-        points: 10
       },
       {
         id: 12,
         question: "Which is NOT one of the Unforgivable Curses?",
         options: ["Imperius Curse", "Cruciatus Curse", "Killing Curse", "Sectumsempra"],
         correctAnswer: "Sectumsempra",
+        name: "Harry Potter",
         difficulty: "medium",
         points: 20
+        correctAnswer: "July 31", // Corrected answer
       },
       {
-        id: 13,
+        points: 30 // Keep points
         question: "What is the name of the ghost who haunts the girls' bathroom?",
         options: ["Nearly Headless Nick", "The Grey Lady", "Moaning Myrtle", "The Bloody Baron"],
         correctAnswer: "Moaning Myrtle",
@@ -1060,6 +1112,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
+        name: "Harry Potter",
       {
         id: 15,
         question: "What is the name of Ron's rat?",
@@ -1068,6 +1121,7 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
+        name: "Harry Potter",
       {
         id: 16,
         question: "What is Professor McGonagall's Animagus form?",
@@ -1076,6 +1130,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
+        name: "Harry Potter",
       {
     textColor: "text-harrypotter-primary", // Keep textColor
         question: "What is the name of the Weasleys' house?",
@@ -1084,6 +1139,7 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
+        name: "Harry Potter",
       {
         id: 18,
         question: "What is the core of Voldemort's wand?",
@@ -1092,6 +1148,7 @@ const quizData = {
         difficulty: "medium",
         points: 20
       },
+        name: "Harry Potter",
       {
         id: 19,
         question: "What creature guards the entrance to the Gryffindor common room?",
@@ -1100,8 +1157,9 @@ const quizData = {
         difficulty: "easy",
         points: 10
       },
+        name: "Harry Potter",
       {
-        id: 20,
+        options: ["The Hobbit Hole", "The Burrow", "Shell Cottage", "The Nest"], // Moved options here
         question: "What is the name of Hagrid's half-brother?",
         options: ["Graff", "Grawp", "Grut", "Greg"],
         correctAnswer: "Grawp",
@@ -1110,6 +1168,7 @@ const quizData = {
       },
       {
         id: 21,
+        name: "Harry Potter",
         question: "What is the name of the train that takes students to Hogwarts?",
         options: ["Hogwarts Express", "Magic Flyer", "Wizard Rail", "Platform 9¾ Express"],
         correctAnswer: "Hogwarts Express",
@@ -1118,6 +1177,7 @@ const quizData = {
       },
       {
         id: 22,
+        name: "Harry Potter",
         question: "What does the spell 'Expelliarmus' do?",
         options: ["Disarms an opponent", "Creates fire", "Freezes an opponent", "Makes objects float"],
         correctAnswer: "Disarms an opponent",
@@ -1126,6 +1186,7 @@ const quizData = {
       },
       {
         id: 23,
+        name: "Harry Potter",
         question: "What was the name of the Black family's house-elf?",
         options: ["Dobby", "Winky", "Kreacher", "Hokey"],
         correctAnswer: "Kreacher",
@@ -1134,6 +1195,7 @@ const quizData = {
       },
       {
         id: 24,
+        name: "Harry Potter",
         question: "What magical plant helped Harry breathe underwater during the Triwizard Tournament?",
         options: ["Devil's Snare", "Mandrake", "Gillyweed", "Venomous Tentacula"],
         correctAnswer: "Gillyweed",
@@ -1142,6 +1204,7 @@ const quizData = {
       },
       {
         id: 25,
+        name: "Harry Potter",
         question: "What is the name of the Weasley's owl that delivers mail?",
         options: ["Hedwig", "Errol", "Pigwidgeon", "Hermes"],
         correctAnswer: "Errol",
@@ -1150,6 +1213,7 @@ const quizData = {
       },
       {
         id: 26,
+        name: "Harry Potter",
         question: "What position does Ron Weasley play on the Gryffindor Quidditch team?",
         options: ["Seeker", "Chaser", "Beater", "Keeper"],
         correctAnswer: "Keeper",
@@ -1158,6 +1222,7 @@ const quizData = {
       },
       {
         id: 27,
+        name: "Harry Potter",
         question: "What is Tom Riddle's middle name?",
         options: ["Morfin", "Salazar", "Marvolo", "Gaunt"],
         correctAnswer: "Marvolo",
@@ -1166,6 +1231,7 @@ const quizData = {
       },
       {
         id: 28,
+        name: "Harry Potter",
         question: "What is the name of the Weasleys' family ghoul?",
         options: ["It has no name", "Ernie", "Arnold", "Gregory"],
         correctAnswer: "It has no name",
@@ -1174,6 +1240,7 @@ const quizData = {
       },
       {
         id: 29,
+        name: "Harry Potter",
         question: "In what year did Harry Potter start attending Hogwarts?",
         options: ["1990", "1991", "1992", "1993"],
         correctAnswer: "1991",
@@ -1182,6 +1249,7 @@ const quizData = {
       },
       {
         id: 30,
+        name: "Harry Potter",
         question: "What was the name of Dumbledore's sister?",
         options: ["Ariana", "Ariella", "Amelia", "Aurora"],
         correctAnswer: "Ariana",
@@ -1190,6 +1258,7 @@ const quizData = {
       },
       {
         id: 31,
+        name: "Harry Potter",
         question: "What is inscribed on Dumbledore's tomb?",
         options: ["Here lies a great wizard", "The last enemy that shall be destroyed is death", "For the greater good", "Death is but the next great adventure"],
         correctAnswer: "The last enemy that shall be destroyed is death",
@@ -1198,6 +1267,7 @@ const quizData = {
       },
       {
         id: 32,
+        name: "Harry Potter",
         question: "What is Hermione's middle name?",
         options: ["Jane", "Jean", "Joy", "Jennifer"],
         correctAnswer: "Jean",
@@ -1206,6 +1276,7 @@ const quizData = {
       },
       {
         id: 33,
+        name: "Harry Potter",
         question: "What is the first Horcrux that Harry destroys?",
         options: ["Slytherin's Locket", "Hufflepuff's Cup", "Ravenclaw's Diadem", "Tom Riddle's Diary"],
         correctAnswer: "Tom Riddle's Diary",
@@ -1214,6 +1285,7 @@ const quizData = {
       },
       {
         id: 34,
+        name: "Harry Potter",
         question: "What is the model of Harry's first broomstick?",
         options: ["Cleansweep Seven", "Nimbus 2000", "Firebolt", "Nimbus 2001"],
         correctAnswer: "Nimbus 2000",
@@ -1222,6 +1294,7 @@ const quizData = {
       },
       {
         id: 35,
+        name: "Harry Potter",
         question: "What is Professor Trelawney's first name?",
         options: ["Sybil", "Sibyl", "Sylvia", "Sophia"],
         correctAnswer: "Sybil",
@@ -1230,6 +1303,7 @@ const quizData = {
       },
       {
         id: 36,
+        name: "Harry Potter",
         question: "What is the address of the Dursleys' home?",
         options: ["3 Privet Drive", "4 Privet Drive", "5 Privet Drive", "6 Privet Drive"],
         correctAnswer: "4 Privet Drive",
@@ -1238,6 +1312,7 @@ const quizData = {
       },
       {
         id: 37,
+        name: "Harry Potter",
         question: "What is the name of the centaur who teaches Divination at Hogwarts?",
         options: ["Firenze", "Bane", "Magorian", "Ronan"],
         correctAnswer: "Firenze",
@@ -1246,6 +1321,7 @@ const quizData = {
       },
       {
         id: 38,
+        name: "Harry Potter",
         question: "What type of dragon did Harry face in the Triwizard Tournament?",
         options: ["Chinese Fireball", "Swedish Short-Snout", "Common Welsh Green", "Hungarian Horntail"],
         correctAnswer: "Hungarian Horntail",
@@ -1254,6 +1330,7 @@ const quizData = {
       },
       {
         id: 39,
+        name: "Harry Potter",
         question: "What is the name of the pub in Hogsmeade?",
         options: ["The Three Broomsticks", "The Leaky Cauldron", "The Hog's Head", "The Golden Snitch"],
         correctAnswer: "The Three Broomsticks",
@@ -1262,6 +1339,7 @@ const quizData = {
       },
       {
         id: 40,
+        name: "Harry Potter",
         question: "Who founded the Society for the Promotion of Elfish Welfare (S.P.E.W.)?",
         options: ["Hermione Granger", "Luna Lovegood", "Ginny Weasley", "Molly Weasley"],
         correctAnswer: "Hermione Granger",
@@ -1270,6 +1348,7 @@ const quizData = {
       },
       {
         id: 41,
+        name: "Harry Potter",
         question: "What color are the Hogwarts Express train's carriages?",
         options: ["Green", "Blue", "Black", "Red"],
         correctAnswer: "Red",
