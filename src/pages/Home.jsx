@@ -48,40 +48,45 @@ const Home = ({ darkMode, toggleDarkMode }) => { // Added props
           </button>
         </div>
       </header>
-      
-      {/* Main content */}
+{/* Main content */}
       <main className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         {showWelcome ? (
           // --- Initial Welcome Screen ---
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            <ul className="text-left space-y-2 mb-4 text-surface-700 dark:text-surface-300 font-handwritten">
-              <li className="flex items-start">
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-comic font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              <li className="flex items-start">
+              Welcome to FandomFever!
             </h2>
             <p className="text-lg sm:text-xl mb-6 text-surface-600 dark:text-surface-300 font-handwritten">
               Challenge yourself with trivia about Friends, Modern Family, and Harry Potter
-              <li className="flex items-start">
+            </p>
             
             <motion.div
               className="max-w-md mx-auto bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm rounded-2xl shadow-soft p-6 mb-10 flex justify-center items-center"
-              <li className="flex items-start">
-              <span className="text-4xl">🎯</span>
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <span className="text-4xl mr-3">🎯</span>
+              <div className="text-left">
+                <h3 className="font-bold text-surface-800 dark:text-surface-200">Test Your Knowledge</h3>
+                <p className="text-sm text-surface-600 dark:text-surface-400">Multiple difficulty levels</p>
+              </div>
             </motion.div>
-            
-            </ul>
 
             {/* Button to start the quiz flow (which now begins with category selection in MainFeature) */}
             <motion.button
               onClick={() => setShowWelcome(false)}
-              className="col-span-full btn btn-primary text-lg md:text-xl py-4 rounded-xl font-comic tracking-wide mt-6"
+              className="btn btn-primary text-lg md:text-xl py-4 px-8 rounded-xl font-comic tracking-wide"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-            >Start Quiz!
-              </ul>
+            >
+              Start Quiz!
+            </motion.button>
           </motion.div>
         ) : (
           // --- Main Quiz Flow (handles Category, Level, Quiz, Results) ---
@@ -98,23 +103,5 @@ const Home = ({ darkMode, toggleDarkMode }) => { // Added props
     </div>
   );
 };
-
-export default Home;
-              ].map((category) => (
-              <motion.button
-                onClick={() => setShowWelcome(false)}
-                className="col-span-full btn btn-primary text-lg md:text-xl py-4 rounded-xl font-comic tracking-wide"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >Start Quiz!
-              </motion.button>
-            </motion.div>
-          </AnimatePresence> {/* Moved closing tag up */}
-          // --- Main Quiz Flow (handles Category, Level, Quiz, Results) ---
-          <MainFeature onBackToWelcome={() => setShowWelcome(true)} /> {/* Pass a function to go back to welcome */}
-      </footer>
-    </div>
-  );
-          {/* Note: MainFeature is now rendered conditionally in the main section, not here */}
 
 export default Home;
