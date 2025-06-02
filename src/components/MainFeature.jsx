@@ -368,27 +368,25 @@ const MainFeature = ({ onBackToWelcome }) => {
     setCurrentRound({ round: 1, isDoublePoints: false });
   };
 
-  const handleLevelSelect = (level) => {
+const handleLevelSelect = (level) => {
     setSelectedLevel(level);
     const filteredQuestions = quizData.filter(q =>
       q.name === selectedCategory && q.difficulty === level.toLowerCase()
     );
     if (filteredQuestions.length > 0) {
-      setQuizQuestions(shuffleArray(filteredQuestions));
+      setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take the first 10 questions for the quiz
       setCurrentQuestionIndex(0);
       setScore(0);
-      setPoints(0);
-      setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10)); // Take the first 10 questions for the quiz
-      setScore(0);
-      toast.info(`Starting ${selectedCategory} - ${level} Quiz!`, { autoClose: 2000 });
-    } else {
-      toast.warning(`No questions found for ${selectedCategory} - ${level}. Please select another level.`, { autoClose: 3000 });
       setPoints(0);
       setGameEnded(false);
       setSelectedAnswer(null);
       setIsCorrect(null);
       setShowFeedback(false);
-      setCurrentRound({ round: 1, isDoublePoints: false }); // Reset round logic
+      setCurrentRound({ round: 1, isDoublePoints: false });
+      toast.info(`Starting ${selectedCategory} - ${level} Quiz!`, { autoClose: 2000 });
+    } else {
+      toast.warning(`No questions found for ${selectedCategory} - ${level}. Please select another level.`, { autoClose: 3000 });
+    }
   };
 
   const handleAnswerSelect = (answer) => {
@@ -428,8 +426,8 @@ const MainFeature = ({ onBackToWelcome }) => {
     const filteredQuestions = quizData.filter(q =>
       q.name === selectedCategory && q.difficulty === selectedLevel.toLowerCase()
     );
-    setQuizQuestions(shuffleArray(filteredQuestions));
-    setCurrentQuestionIndex(0); // Ensure index starts at 0
+    setQuizQuestions(shuffleArray(filteredQuestions).slice(0, 10));
+    setCurrentQuestionIndex(0);
     setScore(0);
     setPoints(0);
     setGameEnded(false);
@@ -477,6 +475,22 @@ const MainFeature = ({ onBackToWelcome }) => {
       // From Category Select screen, go back to Welcome
       onBackToWelcome();
     }
+};
+
+  // Helper function to get current category data
+  const getCategoryData = () => {
+    if (!selectedCategory) return { color: 'bg-primary', themeClass: '', name: '' };
+    return {
+      ...categoryData[selectedCategory],
+      name: selectedCategory
+    };
+  };
+
+  // Difficulty color mapping
+  const difficultyColors = {
+    easy: 'text-green-600 dark:text-green-400',
+    medium: 'text-yellow-600 dark:text-yellow-400',
+    hard: 'text-red-600 dark:text-red-400'
   };
 
   const categories = useMemo(() => [...new Set(quizData.map(q => q.name))], []);
@@ -721,8 +735,11 @@ const MainFeature = ({ onBackToWelcome }) => {
                 Choose Another Category
               </motion.button>
             </div>
-          </motion.div>
+</motion.div>
         )}
       </AnimatePresence>
     </div>
   );
+};
+
+export default MainFeature;
